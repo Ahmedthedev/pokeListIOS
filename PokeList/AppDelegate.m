@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "RootViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,13 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    RootViewController* rootViewController = [[RootViewController alloc] init]; // Construction
+    UINavigationController* navigationController = [[UINavigationController alloc]initWithRootViewController:rootViewController];
+    CGRect screenRect = [UIScreen mainScreen].bounds; // Récup taille ecran courant
+    UIWindow* window = [[UIWindow alloc] initWithFrame:screenRect]; // creation de la fenetre
+    window.rootViewController = navigationController;
+    [window makeKeyAndVisible];
+    self.window = window; // Passer la nouvelle fenetre a la fenetre courant [frame]
     return YES;
 }
 

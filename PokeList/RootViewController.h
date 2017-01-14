@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  RootViewController.h
 //  PokeList
 //
 //  Created by Jeyaksan RAJARATNAM on 14/01/2017.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface RootViewController : UIViewController
 
 @end
-
