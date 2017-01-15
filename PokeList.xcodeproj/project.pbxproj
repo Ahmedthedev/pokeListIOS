@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		051439A51E2C1555008E91CD /* FastAttack.m in Sources */ = {isa = PBXBuildFile; fileRef = 051439A41E2C1555008E91CD /* FastAttack.m */; };
+		051439A81E2C156A008E91CD /* SpecialAttack.m in Sources */ = {isa = PBXBuildFile; fileRef = 051439A71E2C156A008E91CD /* SpecialAttack.m */; };
+		051439AB1E2C1581008E91CD /* Weight.m in Sources */ = {isa = PBXBuildFile; fileRef = 051439AA1E2C1581008E91CD /* Weight.m */; };
+		051439AE1E2C1594008E91CD /* Height.m in Sources */ = {isa = PBXBuildFile; fileRef = 051439AD1E2C1594008E91CD /* Height.m */; };
+		051439B11E2C15BB008E91CD /* NextEvolutionRequirements.m in Sources */ = {isa = PBXBuildFile; fileRef = 051439B01E2C15BB008E91CD /* NextEvolutionRequirements.m */; };
+		051439B41E2C15D9008E91CD /* NextEvolution.m in Sources */ = {isa = PBXBuildFile; fileRef = 051439B31E2C15D9008E91CD /* NextEvolution.m */; };
+		051439B71E2C15E9008E91CD /* Pokemon.m in Sources */ = {isa = PBXBuildFile; fileRef = 051439B61E2C15E9008E91CD /* Pokemon.m */; };
+		051439BB1E2C17E4008E91CD /* PreviousEvolution.m in Sources */ = {isa = PBXBuildFile; fileRef = 051439BA1E2C17E4008E91CD /* PreviousEvolution.m */; };
 		055AFF421E2AB1620080C597 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 055AFF411E2AB1620080C597 /* main.m */; };
 		055AFF451E2AB1620080C597 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 055AFF441E2AB1620080C597 /* AppDelegate.m */; };
 		055AFF4D1E2AB1620080C597 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 055AFF4C1E2AB1620080C597 /* Assets.xcassets */; };
@@ -16,6 +24,22 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		051439A31E2C1555008E91CD /* FastAttack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FastAttack.h; sourceTree = "<group>"; };
+		051439A41E2C1555008E91CD /* FastAttack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FastAttack.m; sourceTree = "<group>"; };
+		051439A61E2C156A008E91CD /* SpecialAttack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialAttack.h; sourceTree = "<group>"; };
+		051439A71E2C156A008E91CD /* SpecialAttack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialAttack.m; sourceTree = "<group>"; };
+		051439A91E2C1581008E91CD /* Weight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weight.h; sourceTree = "<group>"; };
+		051439AA1E2C1581008E91CD /* Weight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weight.m; sourceTree = "<group>"; };
+		051439AC1E2C1594008E91CD /* Height.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Height.h; sourceTree = "<group>"; };
+		051439AD1E2C1594008E91CD /* Height.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Height.m; sourceTree = "<group>"; };
+		051439AF1E2C15BB008E91CD /* NextEvolutionRequirements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NextEvolutionRequirements.h; sourceTree = "<group>"; };
+		051439B01E2C15BB008E91CD /* NextEvolutionRequirements.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NextEvolutionRequirements.m; sourceTree = "<group>"; };
+		051439B21E2C15D9008E91CD /* NextEvolution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NextEvolution.h; sourceTree = "<group>"; };
+		051439B31E2C15D9008E91CD /* NextEvolution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NextEvolution.m; sourceTree = "<group>"; };
+		051439B51E2C15E9008E91CD /* Pokemon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pokemon.h; sourceTree = "<group>"; };
+		051439B61E2C15E9008E91CD /* Pokemon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pokemon.m; sourceTree = "<group>"; };
+		051439B91E2C17E4008E91CD /* PreviousEvolution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviousEvolution.h; sourceTree = "<group>"; };
+		051439BA1E2C17E4008E91CD /* PreviousEvolution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviousEvolution.m; sourceTree = "<group>"; };
 		055AFF3D1E2AB1620080C597 /* PokeList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		055AFF411E2AB1620080C597 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		055AFF431E2AB1620080C597 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -39,6 +63,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		051439B81E2C1631008E91CD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				051439B51E2C15E9008E91CD /* Pokemon.h */,
+				051439B61E2C15E9008E91CD /* Pokemon.m */,
+				051439A31E2C1555008E91CD /* FastAttack.h */,
+				051439A41E2C1555008E91CD /* FastAttack.m */,
+				051439A61E2C156A008E91CD /* SpecialAttack.h */,
+				051439A71E2C156A008E91CD /* SpecialAttack.m */,
+				051439A91E2C1581008E91CD /* Weight.h */,
+				051439AA1E2C1581008E91CD /* Weight.m */,
+				051439AC1E2C1594008E91CD /* Height.h */,
+				051439AD1E2C1594008E91CD /* Height.m */,
+				051439AF1E2C15BB008E91CD /* NextEvolutionRequirements.h */,
+				051439B01E2C15BB008E91CD /* NextEvolutionRequirements.m */,
+				051439B21E2C15D9008E91CD /* NextEvolution.h */,
+				051439B31E2C15D9008E91CD /* NextEvolution.m */,
+				051439B91E2C17E4008E91CD /* PreviousEvolution.h */,
+				051439BA1E2C17E4008E91CD /* PreviousEvolution.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		055AFF341E2AB1620080C597 = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +111,7 @@
 				055AFF571E2AB2E70080C597 /* RootViewController.h */,
 				055AFF581E2AB2E70080C597 /* RootViewController.m */,
 				055AFF591E2AB2E70080C597 /* RootViewController.xib */,
+				051439B81E2C1631008E91CD /* Models */,
 				055AFF4E1E2AB1620080C597 /* LaunchScreen.storyboard */,
 				055AFF511E2AB1620080C597 /* Info.plist */,
 				055AFF401E2AB1620080C597 /* Supporting Files */,
@@ -151,8 +199,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				055AFF451E2AB1620080C597 /* AppDelegate.m in Sources */,
+				051439B41E2C15D9008E91CD /* NextEvolution.m in Sources */,
+				051439A51E2C1555008E91CD /* FastAttack.m in Sources */,
+				051439BB1E2C17E4008E91CD /* PreviousEvolution.m in Sources */,
+				051439B71E2C15E9008E91CD /* Pokemon.m in Sources */,
 				055AFF421E2AB1620080C597 /* main.m in Sources */,
+				051439AE1E2C1594008E91CD /* Height.m in Sources */,
 				055AFF5A1E2AB2E70080C597 /* RootViewController.m in Sources */,
+				051439A81E2C156A008E91CD /* SpecialAttack.m in Sources */,
+				051439B11E2C15BB008E91CD /* NextEvolutionRequirements.m in Sources */,
+				051439AB1E2C1581008E91CD /* Weight.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +355,7 @@
 				055AFF561E2AB1620080C597 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
