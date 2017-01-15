@@ -8,7 +8,7 @@
 
 #import "RootViewController.h"
 
-@interface RootViewController ()
+@interface RootViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @end
 
@@ -29,6 +29,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -39,6 +41,23 @@
 
 - (void) btnAbout_Click:(id) sender{
     NSLog(@"DEBUG --> About button was pressed");
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    // return [data_ count];
+    return 3;
+}
+
+static NSString* const kCellId = @"azertyuioopqsdfghjklmwxcvbn";
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:kCellId];
+    if(!cell){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellId];
+    }
+    cell.imageView.image = [UIImage imageNamed:@"Pokeball"];
+    cell.textLabel.text = [NSString stringWithFormat:@"Pokemon -> %ld", indexPath.row];
+    return cell;
 }
 
 /*
