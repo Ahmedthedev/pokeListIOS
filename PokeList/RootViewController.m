@@ -14,6 +14,19 @@
 
 @implementation RootViewController
 
+- (instancetype) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if(self != nil){
+        UIButton *uIBtnAbout = [UIButton buttonWithType:UIButtonTypeInfoLight];
+        [uIBtnAbout addTarget:self action:@selector(btnAbout_Click:) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *btnAbout = [[UIBarButtonItem alloc] initWithCustomView:uIBtnAbout];
+        uIBtnAbout.tintColor = [UIColor orangeColor];
+        self.navigationItem.rightBarButtonItem = btnAbout;
+        // data_ = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -22,6 +35,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) btnAbout_Click:(id) sender{
+    NSLog(@"DEBUG --> About button was pressed");
 }
 
 /*
