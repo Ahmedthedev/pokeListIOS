@@ -7,6 +7,7 @@
 //
 
 #import "RootViewController.h"
+#import "Pokemon.h"
 
 @interface RootViewController () <UITableViewDelegate, UITableViewDataSource>
 
