@@ -9,6 +9,7 @@
 #import "RootViewController.h"
 #import "AboutViewController.h"
 #import "Pokemon.h"
+#import "FeaturesViewController.h"
 
 @interface RootViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -53,6 +54,12 @@
     return 5;
 }
 
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    FeaturesViewController * featureView  = [[FeaturesViewController alloc] initWithNibName:@"FeaturesViewController" bundle:nil];
+    
+    [self.navigationController pushViewController:featureView animated:YES];
+}
+
 static NSString* const kCellId = @"azertyuioopqsdfghjklmwxcvbn";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -60,6 +67,7 @@ static NSString* const kCellId = @"azertyuioopqsdfghjklmwxcvbn";
     if(!cell){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellId];
     }
+
     cell.imageView.image = [UIImage imageNamed:@"dracaufeuIcon"];
     cell.textLabel.text = @"Dracaufeu";
     UILabel *type1;
@@ -79,6 +87,7 @@ static NSString* const kCellId = @"azertyuioopqsdfghjklmwxcvbn";
     type2.backgroundColor = [UIColor blueColor];
     type2.text = @"Vol";
     [cell.contentView addSubview:type2];
+
     return cell;
 }
 
