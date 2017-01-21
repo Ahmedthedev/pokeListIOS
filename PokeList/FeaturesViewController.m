@@ -14,7 +14,7 @@
 
 @implementation FeaturesViewController
 
--(instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil pokemonId:( unsigned short)pokeId{
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil pokemonId:( unsigned short)pokeId{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if(self != nil){
         /// WEBSERVICE MERCI ON OUBLIE PAS
@@ -23,9 +23,18 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    
+    [self.view addSubview:self.featureScrollView];
+    [self.featureScrollView setContentSize:CGSizeMake(0,self.featureView.frame.size.height*1.668)];
+    [self.featureScrollView addSubview:self.featureView];
+    
+    
 
-    // Do any additional setup after loading the view from its nib.
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

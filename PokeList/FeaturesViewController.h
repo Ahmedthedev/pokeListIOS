@@ -10,4 +10,7 @@
 
 @interface FeaturesViewController : UIViewController
 
+@property (retain, nonatomic) IBOutlet UIScrollView *featureScrollView;
+@property (retain, nonatomic) IBOutlet UIView *featureView;
+
 @end
