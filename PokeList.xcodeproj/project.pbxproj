@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		037498841E336F2D00836F9C /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 037498821E336F2D00836F9C /* AboutViewController.m */; };
+		037498851E336F2D00836F9C /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 037498831E336F2D00836F9C /* AboutViewController.xib */; };
 		051439A51E2C1555008E91CD /* FastAttack.m in Sources */ = {isa = PBXBuildFile; fileRef = 051439A41E2C1555008E91CD /* FastAttack.m */; };
 		051439A81E2C156A008E91CD /* SpecialAttack.m in Sources */ = {isa = PBXBuildFile; fileRef = 051439A71E2C156A008E91CD /* SpecialAttack.m */; };
 		051439AB1E2C1581008E91CD /* Weight.m in Sources */ = {isa = PBXBuildFile; fileRef = 051439AA1E2C1581008E91CD /* Weight.m */; };
@@ -24,6 +26,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		037498811E336F2D00836F9C /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		037498821E336F2D00836F9C /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		037498831E336F2D00836F9C /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
 		051439A31E2C1555008E91CD /* FastAttack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FastAttack.h; sourceTree = "<group>"; };
 		051439A41E2C1555008E91CD /* FastAttack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FastAttack.m; sourceTree = "<group>"; };
 		051439A61E2C156A008E91CD /* SpecialAttack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialAttack.h; sourceTree = "<group>"; };
@@ -111,6 +116,9 @@
 				055AFF571E2AB2E70080C597 /* RootViewController.h */,
 				055AFF581E2AB2E70080C597 /* RootViewController.m */,
 				055AFF591E2AB2E70080C597 /* RootViewController.xib */,
+				037498811E336F2D00836F9C /* AboutViewController.h */,
+				037498821E336F2D00836F9C /* AboutViewController.m */,
+				037498831E336F2D00836F9C /* AboutViewController.xib */,
 				051439B81E2C1631008E91CD /* Models */,
 				055AFF4E1E2AB1620080C597 /* LaunchScreen.storyboard */,
 				055AFF511E2AB1620080C597 /* Info.plist */,
@@ -187,6 +195,7 @@
 			files = (
 				055AFF501E2AB1620080C597 /* LaunchScreen.storyboard in Resources */,
 				055AFF4D1E2AB1620080C597 /* Assets.xcassets in Resources */,
+				037498851E336F2D00836F9C /* AboutViewController.xib in Resources */,
 				055AFF5B1E2AB2E70080C597 /* RootViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -204,6 +213,7 @@
 				051439BB1E2C17E4008E91CD /* PreviousEvolution.m in Sources */,
 				051439B71E2C15E9008E91CD /* Pokemon.m in Sources */,
 				055AFF421E2AB1620080C597 /* main.m in Sources */,
+				037498841E336F2D00836F9C /* AboutViewController.m in Sources */,
 				051439AE1E2C1594008E91CD /* Height.m in Sources */,
 				055AFF5A1E2AB2E70080C597 /* RootViewController.m in Sources */,
 				051439A81E2C156A008E91CD /* SpecialAttack.m in Sources */,

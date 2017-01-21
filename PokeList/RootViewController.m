@@ -7,6 +7,7 @@
 //
 
 #import "RootViewController.h"
+#import "AboutViewController.h"
 #import "Pokemon.h"
 
 @interface RootViewController () <UITableViewDelegate, UITableViewDataSource>
@@ -42,6 +43,8 @@
 
 - (void) btnAbout_Click:(id) sender{
     NSLog(@"DEBUG --> About button was pressed");
+    AboutViewController* aboutView = [[AboutViewController alloc] init];
+    [self presentViewController:aboutView animated:YES completion:nil];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
