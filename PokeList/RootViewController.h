@@ -16,4 +16,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) NSMutableArray<Pokemon*> *pokemonList;
+
+- (void) reloadTableView;
 @end

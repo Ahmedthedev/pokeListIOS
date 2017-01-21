@@ -12,7 +12,7 @@
 
 const NSString *baseApiUrl = @"http://pokelist.azurewebsites.net/api";
 
-+ (NSMutableArray<Pokemon*>*) getAllPokemons {
++ (NSMutableArray<Pokemon*>*) getAllPokemonsWithRootView:(RootViewController*) view {
     __block NSMutableArray<Pokemon*> *pokemonsList = [[NSMutableArray alloc] init];
     NSURLSession* session = [NSURLSession sharedSession];
     NSURLRequest* request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", baseApiUrl, @"/pokemon" ]]];
@@ -24,6 +24,7 @@ const NSString *baseApiUrl = @"http://pokelist.azurewebsites.net/api";
                 [pokemonsList addObject:[[Pokemon alloc] initWithNSDictionnary:key]];
             }
         }
+        [view reloadTableView];
     }];
     [dataTask resume];
     return pokemonsList;

@@ -37,7 +37,7 @@
     self.tableView.dataSource = self;
     self.tableView.separatorColor = [UIColor clearColor];
     self.pokemonList = [[NSMutableArray alloc] init];
-    self.pokemonList = [PokeDataLayer getAllPokemons];
+    self.pokemonList = [PokeDataLayer getAllPokemonsWithRootView:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,15 +55,17 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    // return [data_ count];
-    return 5;
-    // return [self.pokemonList count];
+    return [self.pokemonList count];
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    FeaturesViewController * featureView  = [[FeaturesViewController alloc] initWithNibName:@"FeaturesViewController" bundle:nil];
-    
+    NSInteger pokeId = [[self.pokemonList objectAtIndex:indexPath.row].number integerValue];
+    FeaturesViewController * featureView  = [[FeaturesViewController alloc] initWithNibName:@"FeaturesViewController" bundle:nil pokemonId:pokeId];
     [self.navigationController pushViewController:featureView animated:YES];
+}
+
+- (void) reloadTableView{
+    [self.tableView reloadData];
 }
 
 static NSString* const kCellId = @"azertyuioopqsdfghjklmwxcvbn";
@@ -73,16 +75,20 @@ static NSString* const kCellId = @"azertyuioopqsdfghjklmwxcvbn";
     if(!cell){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellId];
     }
-
-    cell.imageView.image = [UIImage imageNamed:@"dracaufeuIcon"];
-    cell.textLabel.text = @"Dracaufeu";
+    Pokemon *currentPokemon = [self.pokemonList objectAtIndex:indexPath.row];
+    cell.imageView.image = [UIImage imageNamed:@"Pokeball"];
+    cell.textLabel.text = currentPokemon.name;
     UILabel *type1;
     type1 = [[UILabel alloc] initWithFrame:CGRectMake(240.0, 27.0, 50.0, 15.0)];
     type1.font = [UIFont systemFontOfSize:14.0];
     type1.textAlignment = NSTextAlignmentCenter;
     type1.textColor = [UIColor whiteColor];
     type1.backgroundColor = [UIColor redColor];
-    type1.text = @"Feu";
+    if([[currentPokemon.types objectAtIndex:0] isEqual:[NSNull null]]){
+        type1.text = [currentPokemon.types objectAtIndex:0];
+    }else{
+        type1.text = @"---";
+    }
     [cell.contentView addSubview:type1];
     
     UILabel *type2;
@@ -91,7 +97,12 @@ static NSString* const kCellId = @"azertyuioopqsdfghjklmwxcvbn";
     type2.textAlignment = NSTextAlignmentCenter;
     type2.textColor = [UIColor whiteColor];
     type2.backgroundColor = [UIColor blueColor];
-    type2.text = @"Vol";
+    /*if([[currentPokemon.types objectAtIndex:1] isEqual:[NSNull null]]){
+        type2.text = [currentPokemon.types objectAtIndex:1];
+    }else{
+        type2.text = @"---";
+    }*/
+    type2.text = @"---";
     [cell.contentView addSubview:type2];
 
     return cell;

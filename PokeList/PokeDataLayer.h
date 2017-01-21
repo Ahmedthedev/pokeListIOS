@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RootViewController.h"
 #import "Pokemon.h"
 
 @interface PokeDataLayer : NSObject
 
-+ (NSMutableArray<Pokemon*>*) getAllPokemons;
++ (NSMutableArray<Pokemon*>*) getAllPokemonsWithRootView:(RootViewController*) view;
 
 @end

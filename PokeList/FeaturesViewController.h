@@ -13,4 +13,6 @@
 @property (retain, nonatomic) IBOutlet UIScrollView *featureScrollView;
 @property (retain, nonatomic) IBOutlet UIView *featureView;
 
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil pokemonId:(unsigned short)pokeId;
+
 @end
