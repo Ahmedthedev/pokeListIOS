@@ -15,9 +15,11 @@
 
 - (instancetype) initWithNSDictionnary:(NSDictionary*) dict{
     self = [super init];
-    if(!self){
-        self.number = (int)[dict objectForKey:@"Number"];
-        self.name = (NSString*)[dict objectForKey:@"Name"];
+    if(self){
+        if(![dict isEqual:[NSNull null]]){
+            self.number = (int)[dict objectForKey:@"number"];
+            self.name = (NSString*)[dict objectForKey:@"name"];
+        }
     }
     return self;
 }

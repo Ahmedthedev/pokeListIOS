@@ -8,8 +8,9 @@
 
 #import "RootViewController.h"
 #import "AboutViewController.h"
-#import "Pokemon.h"
 #import "FeaturesViewController.h"
+#import "Pokemon.h"
+#import "PokeDataLayer.h"
 
 @interface RootViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -35,7 +36,8 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.separatorColor = [UIColor clearColor];
-    // Do any additional setup after loading the view from its nib.
+    self.pokemonList = [[NSMutableArray alloc] init];
+    self.pokemonList = [PokeDataLayer getAllPokemons];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,7 +46,10 @@
 }
 
 - (void) btnAbout_Click:(id) sender{
+#ifndef NDEBUG
+    /* Debug only code */ /* Code compilé uniquement en mode debug ! */
     NSLog(@"DEBUG --> About button was pressed");
+#endif
     AboutViewController* aboutView = [[AboutViewController alloc] init];
     [self presentViewController:aboutView animated:YES completion:nil];
 }
@@ -52,6 +57,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     // return [data_ count];
     return 5;
+    // return [self.pokemonList count];
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

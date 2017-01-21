@@ -29,45 +29,67 @@
 
 - (instancetype) initWithNSDictionnary:(NSDictionary*)dict{
     self = [super init];
-    if(!self){
+    if(self){
         NSDictionary *tmp;
-        self.number = (NSString*)[dict objectForKey:@"Number"];
-        self.name = (NSString*)[dict objectForKey:@"Name"];
-        self.classification = (NSString*)[dict objectForKey:@"Classification"];
-        tmp = [dict objectForKey:@"Types"];
-        for (NSString* key in tmp) {
-            [self.types addObject:[tmp objectForKey:key]];
+        self.types = [[NSMutableArray alloc] init];
+        self.resistant = [[NSMutableArray alloc] init];
+        self.weaknesses = [[NSMutableArray alloc] init];
+        self.fastAttacks = [[NSMutableArray alloc] init];
+        self.specialAttacks = [[NSMutableArray alloc] init];
+        self.nextEvolutions = [[NSMutableArray alloc] init];
+        self.previousEvolutions = [[NSMutableArray alloc] init];
+        
+        self.number = (NSString*)[dict objectForKey:@"number"];
+        self.name = (NSString*)[dict objectForKey:@"name"];
+        self.classification = (NSString*)[dict objectForKey:@"classification"];
+        tmp = [dict objectForKey:@"types"];
+        if(![tmp isEqual:[NSNull null]]){
+            for (id key in tmp) {
+                [self.types addObject:key];
+            }
         }
-        tmp = [dict objectForKey:@"Resistant"];
-        for (NSString* key in tmp) {
-            [self.resistant addObject:[tmp objectForKey:key]];
+        tmp = [dict objectForKey:@"resistant"];
+        if(![tmp isEqual:[NSNull null]]){
+            for (id key in tmp) {
+                [self.resistant addObject:key];
+            }
         }
-        tmp = [dict objectForKey:@"Weaknesses"];
-        for (NSString* key in tmp) {
-            [self.weaknesses addObject:[tmp objectForKey:key]];
+        tmp = [dict objectForKey:@"weaknesses"];
+        if(![tmp isEqual:[NSNull null]]){
+            for (id key in tmp) {
+                [self.weaknesses addObject:key];
+            }
         }
-        tmp = [dict objectForKey:@"FastAttacks"];
-        for (NSString* key in tmp) {
-            [self.fastAttacks addObject:[[FastAttack alloc] initWithNSDictionnary:[tmp objectForKey:key]]];
+        tmp = [dict objectForKey:@"fastAttacks"];
+        if(![tmp isEqual:[NSNull null]]){
+            for (id key in tmp) {
+                [self.fastAttacks addObject:[[FastAttack alloc] initWithNSDictionnary:key]];
+            }
         }
-        tmp = [dict objectForKey:@"SpecialAttacks"];
-        for (NSString* key in tmp) {
-            [self.specialAttacks addObject:[[SpecialAttack alloc] initWithNSDictionnary:[tmp objectForKey:key]]];
+        tmp = [dict objectForKey:@"specialAttacks"];
+        if(![tmp isEqual:[NSNull null]]){
+            for (id key in tmp) {
+                [self.specialAttacks addObject:[[SpecialAttack alloc] initWithNSDictionnary:key]];
+            }
         }
-        self.weight = [[Weight alloc] initWithNSDictionnary:[dict objectForKey:@"Weight"]];
-        self.height = [[Height alloc] initWithNSDictionnary:[dict objectForKey:@"Height"]];
-        self.fleeRate = [[dict objectForKey:@"FleeRate"] doubleValue];
-        self.nextEvolutionRequirements = [[NextEvolutionRequirements alloc] initWithNSDictionnary:[dict objectForKey:@"NextEvolutionRequirements"]];
-        tmp = [dict objectForKey:@"NextEvolutions"];
-        for (NSString* key in tmp) {
-            [self.nextEvolutions addObject:[[NextEvolution alloc] initWithNSDictionnary:[tmp objectForKey:key]]];
+        self.weight = [[Weight alloc] initWithNSDictionnary:[dict objectForKey:@"weight"]];
+        self.height = [[Height alloc] initWithNSDictionnary:[dict objectForKey:@"height"]];
+        self.fleeRate = [[dict objectForKey:@"fleeRate"] doubleValue];
+        self.nextEvolutionRequirements = [[NextEvolutionRequirements alloc] initWithNSDictionnary:[dict objectForKey:@"nextEvolutionRequirements"]];
+        tmp = [dict objectForKey:@"nextEvolutions"];
+        if(![tmp isEqual:[NSNull null]]){
+            for (id key in tmp) {
+                [self.nextEvolutions addObject:[[NextEvolution alloc] initWithNSDictionnary:key]];
+            }
         }
-        tmp = [dict objectForKey:@"PreviousEvolutions"];
-        for (NSString* key in tmp) {
-            [self.previousEvolutions addObject:[[PreviousEvolution alloc] initWithNSDictionnary:[tmp objectForKey:key]]];
+        tmp = [dict objectForKey:@"previousEvolutions"];
+        if(![tmp isEqual:[NSNull null]]){
+            for (id key in tmp) {
+                [self.previousEvolutions addObject:[[PreviousEvolution alloc] initWithNSDictionnary:key]];
+            }
         }
-        self.maxCP = [[dict objectForKey:@"MaxCP"] intValue];
-        self.maxHP = [[dict objectForKey:@"MaxHP"] intValue];
+        self.maxCP = [[dict objectForKey:@"maxCP"] intValue];
+        self.maxHP = [[dict objectForKey:@"maxHP"] intValue];
     }
     return self;
 }

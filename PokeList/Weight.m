@@ -15,9 +15,11 @@
 
 - (instancetype) initWithNSDictionnary:(NSDictionary*) dict{
     self = [super init];
-    if(!self){
-        self.minimum = (NSString*)[dict objectForKey:@"Minimum"];
-        self.maximum = (NSString*)[dict objectForKey:@"Maximum"];
+    if(self){
+        if(![dict isEqual:[NSNull null]]){
+            self.minimum = (NSString*)[dict objectForKey:@"minimum"];
+            self.maximum = (NSString*)[dict objectForKey:@"maximum"];
+        }
     }
     return self;
 }

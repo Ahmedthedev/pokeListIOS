@@ -16,10 +16,12 @@
 
 - (instancetype) initWithNSDictionnary:(NSDictionary*) dict{
     self = [super init];
-    if(!self){
-        self.name = (NSString*)[dict objectForKey:@"Name"];
-        self.type = (NSString*)[dict objectForKey:@"Type"];
-        self.damage = (int)[dict objectForKey:@"Damage"];
+    if(self){
+        if(![dict isEqual:[NSNull null]]){
+            self.name = (NSString*)[dict objectForKey:@"name"];
+            self.type = (NSString*)[dict objectForKey:@"type"];
+            self.damage = (int)[dict objectForKey:@"damage"];
+        }
     }
     return self;
 }
