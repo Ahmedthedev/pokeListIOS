@@ -33,6 +33,7 @@
     [super viewDidLoad];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.separatorColor = [UIColor clearColor];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -49,7 +50,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     // return [data_ count];
-    return 3;
+    return 5;
 }
 
 static NSString* const kCellId = @"azertyuioopqsdfghjklmwxcvbn";
@@ -59,8 +60,25 @@ static NSString* const kCellId = @"azertyuioopqsdfghjklmwxcvbn";
     if(!cell){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellId];
     }
-    cell.imageView.image = [UIImage imageNamed:@"Pokeball"];
-    cell.textLabel.text = [NSString stringWithFormat:@"Pokemon -> %ld", indexPath.row];
+    cell.imageView.image = [UIImage imageNamed:@"dracaufeuIcon"];
+    cell.textLabel.text = @"Dracaufeu";
+    UILabel *type1;
+    type1 = [[UILabel alloc] initWithFrame:CGRectMake(240.0, 27.0, 50.0, 15.0)];
+    type1.font = [UIFont systemFontOfSize:14.0];
+    type1.textAlignment = NSTextAlignmentCenter;
+    type1.textColor = [UIColor whiteColor];
+    type1.backgroundColor = [UIColor redColor];
+    type1.text = @"Feu";
+    [cell.contentView addSubview:type1];
+    
+    UILabel *type2;
+    type2 = [[UILabel alloc] initWithFrame:CGRectMake(240.0, 43.0, 50.0, 15.0)];
+    type2.font = [UIFont systemFontOfSize:14.0];
+    type2.textAlignment = NSTextAlignmentCenter;
+    type2.textColor = [UIColor whiteColor];
+    type2.backgroundColor = [UIColor blueColor];
+    type2.text = @"Vol";
+    [cell.contentView addSubview:type2];
     return cell;
 }
 
