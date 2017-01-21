@@ -52,4 +52,7 @@
 @property(nonatomic, assign) int maxCP;
 @property(nonatomic, assign) int maxHP;
 
+/// Constructeur prenant en paramètre, un dictionnaire
+- (instancetype) initWithNSDictionnary:(NSDictionary*)dict;
+
 @end

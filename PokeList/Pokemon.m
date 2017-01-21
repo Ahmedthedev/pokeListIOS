@@ -27,4 +27,49 @@
 @synthesize maxHP = maxHP_;
 @synthesize maxCP = maxCP_;
 
+- (instancetype) initWithNSDictionnary:(NSDictionary*)dict{
+    self = [super init];
+    if(!self){
+        NSDictionary *tmp;
+        self.number = (NSString*)[dict objectForKey:@"Number"];
+        self.name = (NSString*)[dict objectForKey:@"Name"];
+        self.classification = (NSString*)[dict objectForKey:@"Classification"];
+        tmp = [dict objectForKey:@"Types"];
+        for (NSString* key in tmp) {
+            [self.types addObject:[tmp objectForKey:key]];
+        }
+        tmp = [dict objectForKey:@"Resistant"];
+        for (NSString* key in tmp) {
+            [self.resistant addObject:[tmp objectForKey:key]];
+        }
+        tmp = [dict objectForKey:@"Weaknesses"];
+        for (NSString* key in tmp) {
+            [self.weaknesses addObject:[tmp objectForKey:key]];
+        }
+        tmp = [dict objectForKey:@"FastAttacks"];
+        for (NSString* key in tmp) {
+            [self.fastAttacks addObject:[[FastAttack alloc] initWithNSDictionnary:[tmp objectForKey:key]]];
+        }
+        tmp = [dict objectForKey:@"SpecialAttacks"];
+        for (NSString* key in tmp) {
+            [self.specialAttacks addObject:[[SpecialAttack alloc] initWithNSDictionnary:[tmp objectForKey:key]]];
+        }
+        self.weight = [[Weight alloc] initWithNSDictionnary:[dict objectForKey:@"Weight"]];
+        self.height = [[Height alloc] initWithNSDictionnary:[dict objectForKey:@"Height"]];
+        self.fleeRate = [[dict objectForKey:@"FleeRate"] doubleValue];
+        self.nextEvolutionRequirements = [[NextEvolutionRequirements alloc] initWithNSDictionnary:[dict objectForKey:@"NextEvolutionRequirements"]];
+        tmp = [dict objectForKey:@"NextEvolutions"];
+        for (NSString* key in tmp) {
+            [self.nextEvolutions addObject:[[NextEvolution alloc] initWithNSDictionnary:[tmp objectForKey:key]]];
+        }
+        tmp = [dict objectForKey:@"PreviousEvolutions"];
+        for (NSString* key in tmp) {
+            [self.previousEvolutions addObject:[[PreviousEvolution alloc] initWithNSDictionnary:[tmp objectForKey:key]]];
+        }
+        self.maxCP = [[dict objectForKey:@"MaxCP"] intValue];
+        self.maxHP = [[dict objectForKey:@"MaxHP"] intValue];
+    }
+    return self;
+}
+
 @end

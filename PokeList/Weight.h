@@ -17,4 +17,7 @@
 @property(nonatomic, strong) NSString *minimum;
 @property(nonatomic, strong) NSString *maximum;
 
+/// Constructeur prenant en paramètre, un dictionnaire
+- (instancetype) initWithNSDictionnary:(NSDictionary*) dict;
+
 @end

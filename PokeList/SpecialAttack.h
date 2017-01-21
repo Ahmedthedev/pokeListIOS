@@ -19,4 +19,7 @@
 @property(nonatomic, strong) NSString *type;
 @property(nonatomic, assign) int damage;
 
+/// Constructeur prenant en paramètre, un dictionnaire
+- (instancetype) initWithNSDictionnary:(NSDictionary*) dict;
+
 @end

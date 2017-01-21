@@ -17,4 +17,7 @@
 @property(nonatomic, assign) int amount;
 @property(nonatomic, strong) NSString *name;
 
+/// Constructeur prenant en paramètre, un dictionnaire
+- (instancetype) initWithNSDictionnary:(NSDictionary*) dict;
+
 @end

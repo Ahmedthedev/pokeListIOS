@@ -13,4 +13,13 @@
 @synthesize number = number_;
 @synthesize name = name_;
 
+- (instancetype) initWithNSDictionnary:(NSDictionary*) dict{
+    self = [super init];
+    if(!self){
+        self.number = (int)[dict objectForKey:@"Number"];
+        self.name = (NSString*)[dict objectForKey:@"Name"];
+    }
+    return self;
+}
+
 @end

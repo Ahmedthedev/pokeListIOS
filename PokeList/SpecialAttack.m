@@ -14,4 +14,14 @@
 @synthesize type = type_;
 @synthesize damage = damage_;
 
+- (instancetype) initWithNSDictionnary:(NSDictionary*) dict{
+    self = [super init];
+    if(!self){
+        self.name = (NSString*)[dict objectForKey:@"Name"];
+        self.type = (NSString*)[dict objectForKey:@"Type"];
+        self.damage = (int)[dict objectForKey:@"Damage"];
+    }
+    return self;
+}
+
 @end

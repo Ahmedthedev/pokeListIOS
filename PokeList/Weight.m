@@ -13,4 +13,13 @@
 @synthesize minimum = minimum_;
 @synthesize maximum = maximum_;
 
+- (instancetype) initWithNSDictionnary:(NSDictionary*) dict{
+    self = [super init];
+    if(!self){
+        self.minimum = (NSString*)[dict objectForKey:@"Minimum"];
+        self.maximum = (NSString*)[dict objectForKey:@"Maximum"];
+    }
+    return self;
+}
+
 @end
