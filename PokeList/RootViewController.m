@@ -58,6 +58,7 @@ static NSString* const kCellId = @"azertyuioopqsdfghjklmwxcvbn";
     }
     cell.imageView.image = [UIImage imageNamed:@"Pokeball"];
     cell.textLabel.text = [NSString stringWithFormat:@"Pokemon -> %ld", indexPath.row];
+
     return cell;
 }
 
