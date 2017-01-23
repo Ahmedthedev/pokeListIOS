@@ -41,6 +41,13 @@
     self.pokemonList = [PokeDataLayer getAllPokemonsWithRootView:self];
 }
 
+- (void) viewWillAppear:(BOOL)animated{
+    NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
+    if (indexPath) {
+        [self.tableView deselectRowAtIndexPath:indexPath animated:animated];
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -80,24 +87,21 @@ static NSString* const kCellId = @"Cell";
     Pokemon *currentPokemon = [self.pokemonList objectAtIndex:indexPath.row];
     cell.pokemonSprite.image = [UIImage imageNamed:@"Pokeball"];
     cell.pokemonName.text = currentPokemon.name;
-    cell.pokemonType1.textAlignment = NSTextAlignmentCenter;
-    cell.pokemonType1.textColor = [UIColor whiteColor];
-    cell.pokemonType1.backgroundColor = [UIColor redColor];
-    if([[currentPokemon.types objectAtIndex:0] isEqual:[NSNull null]]){
+    // cell.pokemonType1.textColor = [UIColor whiteColor];
+    // cell.pokemonType1.backgroundColor = [UIColor redColor];
+    if([currentPokemon.types count] > 0){
         cell.pokemonType1.text = [currentPokemon.types objectAtIndex:0];
     }else{
         cell.pokemonType1.text = @"---";
     }
     
-    cell.pokemonType2.textAlignment = NSTextAlignmentCenter;
-    cell.pokemonType2.textColor = [UIColor whiteColor];
-    cell.pokemonType2.backgroundColor = [UIColor blueColor];
-    /*if([[currentPokemon.types objectAtIndex:1] isEqual:[NSNull null]]){
+    // cell.pokemonType2.textColor = [UIColor whiteColor];
+    // cell.pokemonType2.backgroundColor = [UIColor blueColor];
+    if([currentPokemon.types count] > 1){
         cell.pokemonType2.text = [currentPokemon.types objectAtIndex:1];
     }else{
         cell.pokemonType2.text = @"---";
-    }*/
-    cell.pokemonType2.text = @"---";
+    }
 
     return cell;
 }

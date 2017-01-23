@@ -24,7 +24,10 @@ const NSString *baseApiUrl = @"http://pokelist.azurewebsites.net/api";
                 [pokemonsList addObject:[[Pokemon alloc] initWithNSDictionnary:key]];
             }
         }
-        [view reloadTableView];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [view reloadTableView];
+        });
     }];
     [dataTask resume];
     return pokemonsList;
