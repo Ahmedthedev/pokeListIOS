@@ -7,6 +7,7 @@
 //
 
 #import "RootViewController.h"
+#import "PokemonTableViewCell.h"
 #import "AboutViewController.h"
 #import "FeaturesViewController.h"
 #import "Pokemon.h"
@@ -26,7 +27,7 @@
         UIBarButtonItem *btnAbout = [[UIBarButtonItem alloc] initWithCustomView:uIBtnAbout];
         uIBtnAbout.tintColor = [UIColor orangeColor];
         self.navigationItem.rightBarButtonItem = btnAbout;
-        // data_ = [[NSMutableArray alloc] init];
+        [self.tableView registerNib:[UINib nibWithNibName:@"PokemonTableViewCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
     }
     return self;
 }
@@ -68,42 +69,35 @@
     [self.tableView reloadData];
 }
 
-static NSString* const kCellId = @"azertyuioopqsdfghjklmwxcvbn";
+static NSString* const kCellId = @"Cell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:kCellId];
+    PokemonTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:kCellId];
     if(!cell){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellId];
+        [tableView registerNib:[UINib nibWithNibName:@"PokemonTableViewCell" bundle:nil] forCellReuseIdentifier:kCellId];
+        cell = [tableView dequeueReusableCellWithIdentifier:kCellId forIndexPath:indexPath];
     }
     Pokemon *currentPokemon = [self.pokemonList objectAtIndex:indexPath.row];
-    cell.imageView.image = [UIImage imageNamed:@"Pokeball"];
-    cell.textLabel.text = currentPokemon.name;
-    UILabel *type1;
-    type1 = [[UILabel alloc] initWithFrame:CGRectMake(240.0, 27.0, 50.0, 15.0)];
-    type1.font = [UIFont systemFontOfSize:14.0];
-    type1.textAlignment = NSTextAlignmentCenter;
-    type1.textColor = [UIColor whiteColor];
-    type1.backgroundColor = [UIColor redColor];
+    cell.pokemonSprite.image = [UIImage imageNamed:@"Pokeball"];
+    cell.pokemonName.text = currentPokemon.name;
+    cell.pokemonType1.textAlignment = NSTextAlignmentCenter;
+    cell.pokemonType1.textColor = [UIColor whiteColor];
+    cell.pokemonType1.backgroundColor = [UIColor redColor];
     if([[currentPokemon.types objectAtIndex:0] isEqual:[NSNull null]]){
-        type1.text = [currentPokemon.types objectAtIndex:0];
+        cell.pokemonType1.text = [currentPokemon.types objectAtIndex:0];
     }else{
-        type1.text = @"---";
+        cell.pokemonType1.text = @"---";
     }
-    [cell.contentView addSubview:type1];
     
-    UILabel *type2;
-    type2 = [[UILabel alloc] initWithFrame:CGRectMake(240.0, 43.0, 50.0, 15.0)];
-    type2.font = [UIFont systemFontOfSize:14.0];
-    type2.textAlignment = NSTextAlignmentCenter;
-    type2.textColor = [UIColor whiteColor];
-    type2.backgroundColor = [UIColor blueColor];
+    cell.pokemonType2.textAlignment = NSTextAlignmentCenter;
+    cell.pokemonType2.textColor = [UIColor whiteColor];
+    cell.pokemonType2.backgroundColor = [UIColor blueColor];
     /*if([[currentPokemon.types objectAtIndex:1] isEqual:[NSNull null]]){
-        type2.text = [currentPokemon.types objectAtIndex:1];
+        cell.pokemonType2.text = [currentPokemon.types objectAtIndex:1];
     }else{
-        type2.text = @"---";
+        cell.pokemonType2.text = @"---";
     }*/
-    type2.text = @"---";
-    [cell.contentView addSubview:type2];
+    cell.pokemonType2.text = @"---";
 
     return cell;
 }

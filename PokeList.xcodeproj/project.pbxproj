@@ -17,6 +17,8 @@
 		051439B41E2C15D9008E91CD /* NextEvolution.m in Sources */ = {isa = PBXBuildFile; fileRef = 051439B31E2C15D9008E91CD /* NextEvolution.m */; };
 		051439B71E2C15E9008E91CD /* Pokemon.m in Sources */ = {isa = PBXBuildFile; fileRef = 051439B61E2C15E9008E91CD /* Pokemon.m */; };
 		051439BB1E2C17E4008E91CD /* PreviousEvolution.m in Sources */ = {isa = PBXBuildFile; fileRef = 051439BA1E2C17E4008E91CD /* PreviousEvolution.m */; };
+		052CA8911E36798300D8CB76 /* PokemonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 052CA88F1E36798300D8CB76 /* PokemonTableViewCell.m */; };
+		052CA8921E36798300D8CB76 /* PokemonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 052CA8901E36798300D8CB76 /* PokemonTableViewCell.xib */; };
 		055AFF421E2AB1620080C597 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 055AFF411E2AB1620080C597 /* main.m */; };
 		055AFF451E2AB1620080C597 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 055AFF441E2AB1620080C597 /* AppDelegate.m */; };
 		055AFF4D1E2AB1620080C597 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 055AFF4C1E2AB1620080C597 /* Assets.xcassets */; };
@@ -48,6 +50,9 @@
 		051439B61E2C15E9008E91CD /* Pokemon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pokemon.m; sourceTree = "<group>"; };
 		051439B91E2C17E4008E91CD /* PreviousEvolution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviousEvolution.h; sourceTree = "<group>"; };
 		051439BA1E2C17E4008E91CD /* PreviousEvolution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviousEvolution.m; sourceTree = "<group>"; };
+		052CA88E1E36798300D8CB76 /* PokemonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PokemonTableViewCell.h; sourceTree = "<group>"; };
+		052CA88F1E36798300D8CB76 /* PokemonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PokemonTableViewCell.m; sourceTree = "<group>"; };
+		052CA8901E36798300D8CB76 /* PokemonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PokemonTableViewCell.xib; sourceTree = "<group>"; };
 		055AFF3D1E2AB1620080C597 /* PokeList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		055AFF411E2AB1620080C597 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		055AFF431E2AB1620080C597 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -126,6 +131,9 @@
 				055AFF571E2AB2E70080C597 /* RootViewController.h */,
 				055AFF581E2AB2E70080C597 /* RootViewController.m */,
 				055AFF591E2AB2E70080C597 /* RootViewController.xib */,
+				052CA88E1E36798300D8CB76 /* PokemonTableViewCell.h */,
+				052CA88F1E36798300D8CB76 /* PokemonTableViewCell.m */,
+				052CA8901E36798300D8CB76 /* PokemonTableViewCell.xib */,
 				037498811E336F2D00836F9C /* AboutViewController.h */,
 				037498821E336F2D00836F9C /* AboutViewController.m */,
 				037498831E336F2D00836F9C /* AboutViewController.xib */,
@@ -207,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				055AFF501E2AB1620080C597 /* LaunchScreen.storyboard in Resources */,
+				052CA8921E36798300D8CB76 /* PokemonTableViewCell.xib in Resources */,
 				184EC6511E3370F0005D4D5F /* FeaturesViewController.xib in Resources */,
 				055AFF4D1E2AB1620080C597 /* Assets.xcassets in Resources */,
 				037498851E336F2D00836F9C /* AboutViewController.xib in Resources */,
@@ -227,6 +236,7 @@
 				051439BB1E2C17E4008E91CD /* PreviousEvolution.m in Sources */,
 				051439B71E2C15E9008E91CD /* Pokemon.m in Sources */,
 				184EC6501E3370F0005D4D5F /* FeaturesViewController.m in Sources */,
+				052CA8911E36798300D8CB76 /* PokemonTableViewCell.m in Sources */,
 				055F4F221E33F6850011FAB9 /* PokeDataLayer.m in Sources */,
 				055AFF421E2AB1620080C597 /* main.m in Sources */,
 				037498841E336F2D00836F9C /* AboutViewController.m in Sources */,
