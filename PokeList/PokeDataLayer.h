@@ -22,6 +22,10 @@
 /// Récupère tous les types existant de pokemon
 + (NSMutableArray<NSString*>*) getAllPokemonTypes;
 
+/// Récupère le sprite du pokemon depuis le serveur avec son id
 + (void) getPokemonSpriteWithId:(unsigned short) pokemonId andCell:(PokemonTableViewCell*) cell;
+
+/// Récupère l'image du pokemon depuis le serveur avec son id
++ (void) getPokemonImageWithId:(unsigned short) pokemonId andImageView:(UIImageView*) imageView;
 
 @end

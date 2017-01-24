@@ -51,6 +51,7 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
 }
 
 + (NSMutableArray<NSString*>*) getAllPokemonTypes{
+    // NOT IMPLEMENTED -----
     return nil;
 }
 
@@ -66,13 +67,37 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
         NSData * data = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: spriteUrl]];
         if ( data == nil ){
             dispatch_async(dispatch_get_main_queue(), ^{
-                // WARNING: is the cell still using the same data by this point??
+                // Image par defaut si image non télécharger (inexistant sur le serveur)
                 cell.pokemonSprite.image = [UIImage imageNamed:@"Pokeball"];
             });
         }else{
             dispatch_async(dispatch_get_main_queue(), ^{
-                // WARNING: is the cell still using the same data by this point??
+                // Image récuperer du serveur
                 cell.pokemonSprite.image = [UIImage imageWithData: data];
+            });
+        }
+    });
+}
+
++ (void) getPokemonImageWithId:(unsigned short) pokemonId andImageView:(UIImageView*) imageView{
+    dispatch_async(dispatch_get_global_queue(0,0), ^{
+        // %hu unsigned short
+        NSString *imageUrl = [NSString stringWithFormat:@"%@/%hu.png", baseImageUrl, pokemonId];
+#ifndef NDEBUG
+        /* Debug only code */ /* Code compilé uniquement en mode debug ! */
+        NSLog(@"DEBUG --> Image URL --> %hu", pokemonId);
+        NSLog(@"DEBUG --> Image URL --> %@", imageUrl);
+#endif
+        NSData * data = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: imageUrl]];
+        if ( data == nil ){
+            dispatch_async(dispatch_get_main_queue(), ^{
+                // Image par defaut si image non télécharger (inexistant sur le serveur)
+                imageView.image = [UIImage imageNamed:@"Pokeball"];
+            });
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                // Image récuperer du serveur
+                imageView.image = [UIImage imageWithData: data];
             });
         }
     });
