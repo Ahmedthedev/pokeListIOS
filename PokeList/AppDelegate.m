@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Tools.h"
 #import "RootViewController.h"
 
 @interface AppDelegate ()
@@ -21,12 +22,15 @@
     UINavigationController* navigationController = [[UINavigationController alloc]initWithRootViewController:rootViewController];
     CGRect screenRect = [UIScreen mainScreen].bounds; // Récup taille ecran courant
     UIWindow* window = [[UIWindow alloc] initWithFrame:screenRect]; // creation de la fenetre
+    navigationController.navigationBar.barTintColor = [Tools UIColorFromRGB:0xB71C1C];
+    navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    [navigationController.navigationBar
+     setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     window.rootViewController = navigationController;
     [window makeKeyAndVisible];
     self.window = window; // Passer la nouvelle fenetre a la fenetre courant [frame]
     return YES;
 }
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

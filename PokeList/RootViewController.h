@@ -17,5 +17,6 @@
 
 @property (strong, nonatomic) NSMutableArray<Pokemon*> *pokemonList;
 
+/// Recharge la table view
 - (void) reloadTableView;
 @end

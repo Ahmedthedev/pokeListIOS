@@ -10,6 +10,7 @@
 #import "PokemonTableViewCell.h"
 #import "AboutViewController.h"
 #import "FeaturesViewController.h"
+#import "Tools.h"
 #import "Pokemon.h"
 #import "PokeDataLayer.h"
 
@@ -19,15 +20,18 @@
 
 @implementation RootViewController
 
+static NSString* const kCellId = @"Cell";
+
 - (instancetype) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if(self != nil){
         UIButton *uIBtnAbout = [UIButton buttonWithType:UIButtonTypeInfoLight];
         [uIBtnAbout addTarget:self action:@selector(btnAbout_Click:) forControlEvents:UIControlEventTouchUpInside];
         UIBarButtonItem *btnAbout = [[UIBarButtonItem alloc] initWithCustomView:uIBtnAbout];
-        uIBtnAbout.tintColor = [UIColor orangeColor];
+        uIBtnAbout.tintColor = [UIColor whiteColor];
         self.navigationItem.rightBarButtonItem = btnAbout;
-        [self.tableView registerNib:[UINib nibWithNibName:@"PokemonTableViewCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
+        /// Chargement du xib de la cellule custom dans la tableView
+        [self.tableView registerNib:[UINib nibWithNibName:@"PokemonTableViewCell" bundle:nil] forCellReuseIdentifier:kCellId];
     }
     return self;
 }
@@ -36,12 +40,19 @@
     [super viewDidLoad];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.separatorColor = [UIColor clearColor];
+    // self.tableView.separatorColor = [UIColor clearColor];
     self.pokemonList = [[NSMutableArray alloc] init];
+    // Appel de la methode static pour récupèrer les données
     self.pokemonList = [PokeDataLayer getAllPokemonsWithRootView:self];
 }
 
 - (void) viewWillAppear:(BOOL)animated{
+    // Changement de couleur de la barre de navigation
+    self.navigationController.navigationBar.barTintColor = [Tools UIColorFromRGB:0xB71C1C];
+    // Changement de couleur de la police de la barre de navigation
+    [self.navigationController.navigationBar
+     setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    self.navigationController.navigationBar.barStyle = UIStatusBarStyleLightContent;
     NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
     if (indexPath) {
         [self.tableView deselectRowAtIndexPath:indexPath animated:animated];
@@ -63,6 +74,11 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+#ifndef NDEBUG
+    /* Debug only code */ /* Code compilé uniquement en mode debug ! */
+    // %lu = unsigned long
+    NSLog(@"DEBUG --> Pokemon count = %lu", (unsigned long)[self.pokemonList count]);
+#endif
     return [self.pokemonList count];
 }
 
@@ -76,11 +92,10 @@
     [self.tableView reloadData];
 }
 
-static NSString* const kCellId = @"Cell";
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     PokemonTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:kCellId];
     if(!cell){
+        /// Chargement du xib de la cellule custom dans la tableView
         [tableView registerNib:[UINib nibWithNibName:@"PokemonTableViewCell" bundle:nil] forCellReuseIdentifier:kCellId];
         cell = [tableView dequeueReusableCellWithIdentifier:kCellId forIndexPath:indexPath];
     }
