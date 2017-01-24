@@ -19,6 +19,7 @@
 		051439BB1E2C17E4008E91CD /* PreviousEvolution.m in Sources */ = {isa = PBXBuildFile; fileRef = 051439BA1E2C17E4008E91CD /* PreviousEvolution.m */; };
 		052CA8911E36798300D8CB76 /* PokemonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 052CA88F1E36798300D8CB76 /* PokemonTableViewCell.m */; };
 		052CA8921E36798300D8CB76 /* PokemonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 052CA8901E36798300D8CB76 /* PokemonTableViewCell.xib */; };
+		052CA8951E36B61400D8CB76 /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 052CA8941E36B61400D8CB76 /* Tools.m */; };
 		055AFF421E2AB1620080C597 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 055AFF411E2AB1620080C597 /* main.m */; };
 		055AFF451E2AB1620080C597 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 055AFF441E2AB1620080C597 /* AppDelegate.m */; };
 		055AFF4D1E2AB1620080C597 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 055AFF4C1E2AB1620080C597 /* Assets.xcassets */; };
@@ -53,6 +54,8 @@
 		052CA88E1E36798300D8CB76 /* PokemonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PokemonTableViewCell.h; sourceTree = "<group>"; };
 		052CA88F1E36798300D8CB76 /* PokemonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PokemonTableViewCell.m; sourceTree = "<group>"; };
 		052CA8901E36798300D8CB76 /* PokemonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PokemonTableViewCell.xib; sourceTree = "<group>"; };
+		052CA8931E36B61400D8CB76 /* Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tools.h; sourceTree = "<group>"; };
+		052CA8941E36B61400D8CB76 /* Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tools.m; sourceTree = "<group>"; };
 		055AFF3D1E2AB1620080C597 /* PokeList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		055AFF411E2AB1620080C597 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		055AFF431E2AB1620080C597 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -140,6 +143,8 @@
 				184EC64D1E3370F0005D4D5F /* FeaturesViewController.h */,
 				184EC64E1E3370F0005D4D5F /* FeaturesViewController.m */,
 				184EC64F1E3370F0005D4D5F /* FeaturesViewController.xib */,
+				052CA8931E36B61400D8CB76 /* Tools.h */,
+				052CA8941E36B61400D8CB76 /* Tools.m */,
 				051439B81E2C1631008E91CD /* Models */,
 				055AFF4E1E2AB1620080C597 /* LaunchScreen.storyboard */,
 				055AFF511E2AB1620080C597 /* Info.plist */,
@@ -233,6 +238,7 @@
 				055AFF451E2AB1620080C597 /* AppDelegate.m in Sources */,
 				051439B41E2C15D9008E91CD /* NextEvolution.m in Sources */,
 				051439A51E2C1555008E91CD /* FastAttack.m in Sources */,
+				052CA8951E36B61400D8CB76 /* Tools.m in Sources */,
 				051439BB1E2C17E4008E91CD /* PreviousEvolution.m in Sources */,
 				051439B71E2C15E9008E91CD /* Pokemon.m in Sources */,
 				184EC6501E3370F0005D4D5F /* FeaturesViewController.m in Sources */,
