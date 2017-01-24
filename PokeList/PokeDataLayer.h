@@ -12,6 +12,13 @@
 
 @interface PokeDataLayer : NSObject
 
+/// Récupère tous les Pokemon depuis le webservice
 + (NSMutableArray<Pokemon*>*) getAllPokemonsWithRootView:(RootViewController*) view;
+
+/// Récupère un Pokemon depuis le webservice avec son id
++ (Pokemon*) getPokemonWithId:(unsigned short) pokemonId;
+
+/// Récupère tous les types existant de pokemon
++ (NSMutableArray<NSString*>*) getAllPokemonTypes;
 
 @end
