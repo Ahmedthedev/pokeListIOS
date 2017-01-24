@@ -12,6 +12,7 @@
 
 /// Url de base du webservice
 const NSString *baseApiUrl = @"http://pokelist.azurewebsites.net/api";
+const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokelist/assets";
 
 + (NSMutableArray<Pokemon*>*) getAllPokemonsWithRootView:(RootViewController*) view {
     __block NSMutableArray<Pokemon*> *pokemonsList = [[NSMutableArray alloc] init];
@@ -51,6 +52,30 @@ const NSString *baseApiUrl = @"http://pokelist.azurewebsites.net/api";
 
 + (NSMutableArray<NSString*>*) getAllPokemonTypes{
     return nil;
+}
+
++ (void) getPokemonSpriteWithId:(unsigned short) pokemonId andCell:(PokemonTableViewCell*) cell{
+    dispatch_async(dispatch_get_global_queue(0,0), ^{
+        // %hu unsigned short
+        NSString *spriteUrl = [NSString stringWithFormat:@"%@/sprites/%hu.png", baseImageUrl, pokemonId];
+#ifndef NDEBUG
+        /* Debug only code */ /* Code compilé uniquement en mode debug ! */
+        NSLog(@"DEBUG --> Sprite URL --> %hu", pokemonId);
+        NSLog(@"DEBUG --> Sprite URL --> %@", spriteUrl);
+#endif
+        NSData * data = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: spriteUrl]];
+        if ( data == nil ){
+            dispatch_async(dispatch_get_main_queue(), ^{
+                // WARNING: is the cell still using the same data by this point??
+                cell.pokemonSprite.image = [UIImage imageNamed:@"Pokeball"];
+            });
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                // WARNING: is the cell still using the same data by this point??
+                cell.pokemonSprite.image = [UIImage imageWithData: data];
+            });
+        }
+    });
 }
 
 @end

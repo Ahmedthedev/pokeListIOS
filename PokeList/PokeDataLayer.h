@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "RootViewController.h"
+#import "PokemonTableViewCell.h"
 #import "Pokemon.h"
 
 @interface PokeDataLayer : NSObject
@@ -20,5 +21,7 @@
 
 /// Récupère tous les types existant de pokemon
 + (NSMutableArray<NSString*>*) getAllPokemonTypes;
+
++ (void) getPokemonSpriteWithId:(unsigned short) pokemonId andCell:(PokemonTableViewCell*) cell;
 
 @end

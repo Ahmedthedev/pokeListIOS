@@ -100,7 +100,9 @@ static NSString* const kCellId = @"Cell";
         cell = [tableView dequeueReusableCellWithIdentifier:kCellId forIndexPath:indexPath];
     }
     Pokemon *currentPokemon = [self.pokemonList objectAtIndex:indexPath.row];
-    cell.pokemonSprite.image = [UIImage imageNamed:@"Pokeball"];
+    // cell.pokemonSprite.image = [UIImage imageNamed:@"Pokeball"];
+    
+    [PokeDataLayer getPokemonSpriteWithId:(unsigned short)[currentPokemon.number intValue] andCell:cell];
     cell.pokemonName.text = currentPokemon.name;
     // cell.pokemonType1.textColor = [UIColor whiteColor];
     // cell.pokemonType1.backgroundColor = [UIColor redColor];
