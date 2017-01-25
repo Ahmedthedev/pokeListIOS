@@ -33,7 +33,7 @@
     self.navigationController.navigationBar.tintColor = [Tools UIColorFromRGB:0xB71C1C];
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [Tools UIColorFromRGB:0xB71C1C]}];
-    
+    self.featureScrollView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:self.featureScrollView];
     [self.featureScrollView setContentSize:CGSizeMake(0,self.featureView.frame.size.height*1.668)];
     [self.featureScrollView addSubview:self.featureView];
