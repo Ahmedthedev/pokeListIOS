@@ -56,6 +56,7 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
 }
 
 + (void) getPokemonSpriteWithId:(unsigned short) pokemonId andCell:(PokemonTableViewCell*) cell{
+    cell.pokemonSprite.image = [UIImage imageNamed:@"Pokeball"];
     dispatch_async(dispatch_get_global_queue(0,0), ^{
         // %hu unsigned short
         NSString *spriteUrl = [NSString stringWithFormat:@"%@/sprites/%hu.png", baseImageUrl, pokemonId];
@@ -65,12 +66,7 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
         NSLog(@"DEBUG --> Sprite URL --> %@", spriteUrl);
 #endif
         NSData * data = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: spriteUrl]];
-        if ( data == nil ){
-            dispatch_async(dispatch_get_main_queue(), ^{
-                // Image par defaut si image non télécharger (inexistant sur le serveur)
-                cell.pokemonSprite.image = [UIImage imageNamed:@"Pokeball"];
-            });
-        }else{
+        if (data != nil){
             dispatch_async(dispatch_get_main_queue(), ^{
                 // Image récuperer du serveur
                 cell.pokemonSprite.image = [UIImage imageWithData: data];
@@ -89,7 +85,7 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
         NSLog(@"DEBUG --> Image URL --> %@", imageUrl);
 #endif
         NSData * data = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: imageUrl]];
-        if ( data == nil ){
+        if (data == nil){
             dispatch_async(dispatch_get_main_queue(), ^{
                 // Image par defaut si image non télécharger (inexistant sur le serveur)
                 imageView.image = [UIImage imageNamed:@"Pokeball"];
