@@ -99,4 +99,9 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
     });
 }
 
++ (NSMutableArray<NSString*>*) getPokemonNamesWithString:(NSString*) searchPattern{
+    // NOT IMPLEMENTED -------
+    return nil;
+}
+
 @end

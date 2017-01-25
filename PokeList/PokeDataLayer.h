@@ -19,7 +19,7 @@
 /// Récupère un Pokemon depuis le webservice avec son id
 + (Pokemon*) getPokemonWithId:(unsigned short) pokemonId;
 
-/// Récupère tous les types existant de pokemon
+/// Récupère tous les types existant de pokemon ---> NOT IMPLEMENTED
 + (NSMutableArray<NSString*>*) getAllPokemonTypes;
 
 /// Récupère le sprite du pokemon depuis le serveur avec son id
@@ -27,5 +27,8 @@
 
 /// Récupère l'image du pokemon depuis le serveur avec son id
 + (void) getPokemonImageWithId:(unsigned short) pokemonId andImageView:(UIImageView*) imageView;
+
+/// Récupère la liste des nom de pokemon commmençant par string passer en paramètre ---> NOT IMPLEMENTED
++ (NSMutableArray<NSString*>*) getPokemonNamesWithString:(NSString*) searchPattern;
 
 @end
