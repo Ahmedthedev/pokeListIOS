@@ -11,9 +11,19 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeaturesViewController">
             <connections>
+                <outlet property="description" destination="AWI-ns-Urx" id="Zt5-RU-xlG"/>
+                <outlet property="descriptionLabel" destination="t58-2e-jce" id="80k-an-2Z2"/>
                 <outlet property="featureScrollView" destination="Wsf-io-Xdd" id="zl4-dg-FM2"/>
                 <outlet property="featureView" destination="1Il-R3-vhC" id="dqO-yI-CTo"/>
+                <outlet property="firstType" destination="Wb3-gn-7tC" id="kaZ-Tf-wQw"/>
+                <outlet property="height" destination="qGt-eB-auT" id="a3X-q1-4Jr"/>
+                <outlet property="heightLabel" destination="2z9-7i-8LN" id="mg4-Wt-hhd"/>
+                <outlet property="name" destination="cMr-8f-jAg" id="hPY-QN-Sgi"/>
+                <outlet property="secondType" destination="99o-P5-tdJ" id="M6c-B2-sqK"/>
+                <outlet property="typeLabel" destination="ADs-E5-NrM" id="M7M-Ma-IuF"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="weight" destination="G7u-Xf-oXf" id="HTQ-Ch-OjL"/>
+                <outlet property="weightLabel" destination="JPO-mf-1Bn" id="3RX-VT-J77"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -44,17 +54,17 @@
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ADs-E5-NrM">
-                                    <rect key="frame" x="23" y="174" width="48" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vol" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="99o-P5-tdJ">
                                     <rect key="frame" x="23" y="140" width="39" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ADs-E5-NrM">
+                                    <rect key="frame" x="23" y="174" width="48" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
