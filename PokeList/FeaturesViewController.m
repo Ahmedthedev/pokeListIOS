@@ -19,13 +19,24 @@
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil pokemonId:( unsigned short)pokeId{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if(self != nil){
+       // self.pokemon = [PokeDataLayer getPokemonWithId:pokeId];
+        //self.name.text = self.pokemon.name;
+        
+        
+        
+        //self.firstType.text = self.pokemon.types;
+      //  self.weight.text = self.pokemon.weight.minimum;
+     //   self.name.text = self.pokemon.name;
+    //    self.name.text = self.pokemon.name;
         /// WEBSERVICE MERCI ON OUBLIE PAS
         /// TODO --> Récupérer les données d'un pokemon
         ///          avec la class static PokeDataLayer
         ///          (déjà implémenter)
     }
+    
     return self;
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBar.barTintColor = [Tools UIColorFromRGB:0xFFFFFF];
