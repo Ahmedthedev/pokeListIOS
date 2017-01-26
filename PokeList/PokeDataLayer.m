@@ -50,6 +50,28 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
     return pokemon;
 }
 
++ (void) getPokemonWithId:(unsigned short) pokemonId andFeatureView:(id) featureView {
+    __block Pokemon *pokemon = nil;
+    NSURLSession* session = [NSURLSession sharedSession];
+    NSURLRequest* request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%hu", baseApiUrl, @"/pokemon/", pokemonId]]];
+    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if(!error){
+            NSError* jsonError = nil;
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+            pokemon = [[Pokemon alloc] initWithNSDictionnary:dict];
+            [PokeDataLayer getPokemonImageWithId:pokemonId andImageView:((FeaturesViewController*)featureView).pokemonImage];
+            // On quitte le mode asynchrone pour impacter la vue
+            dispatch_async(dispatch_get_main_queue(), ^{
+                ((FeaturesViewController*) featureView).firstType.text = [pokemon.types objectAtIndex:0];
+                ((FeaturesViewController*) featureView).secondType.text = [pokemon.types objectAtIndex:1];
+                ((FeaturesViewController*) featureView).weight.text = pokemon.weight.minimum;
+                ((FeaturesViewController*) featureView).name.text = pokemon.name;
+            });
+        }
+    }];
+    [dataTask resume];
+}
+
 + (NSMutableArray<NSString*>*) getAllPokemonTypes{
     // NOT IMPLEMENTED -----
     return nil;
@@ -76,6 +98,7 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
 }
 
 + (void) getPokemonImageWithId:(unsigned short) pokemonId andImageView:(UIImageView*) imageView{
+    imageView.image = nil;
     dispatch_async(dispatch_get_global_queue(0,0), ^{
         // %hu unsigned short
         NSString *imageUrl = [NSString stringWithFormat:@"%@/%hu.png", baseImageUrl, pokemonId];
@@ -88,7 +111,7 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
         if (data == nil){
             dispatch_async(dispatch_get_main_queue(), ^{
                 // Image par defaut si image non télécharger (inexistant sur le serveur)
-                imageView.image = [UIImage imageNamed:@"Pokeball"];
+                imageView.image = [UIImage imageNamed:@"LaunchScreenIcon"];
             });
         }else{
             dispatch_async(dispatch_get_main_queue(), ^{

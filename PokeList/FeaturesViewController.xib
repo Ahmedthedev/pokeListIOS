@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,14 +11,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeaturesViewController">
             <connections>
-                <outlet property="description" destination="AWI-ns-Urx" id="Zt5-RU-xlG"/>
-                <outlet property="descriptionLabel" destination="t58-2e-jce" id="80k-an-2Z2"/>
                 <outlet property="featureScrollView" destination="Wsf-io-Xdd" id="zl4-dg-FM2"/>
                 <outlet property="featureView" destination="1Il-R3-vhC" id="dqO-yI-CTo"/>
                 <outlet property="firstType" destination="Wb3-gn-7tC" id="kaZ-Tf-wQw"/>
                 <outlet property="height" destination="qGt-eB-auT" id="a3X-q1-4Jr"/>
                 <outlet property="heightLabel" destination="2z9-7i-8LN" id="mg4-Wt-hhd"/>
                 <outlet property="name" destination="cMr-8f-jAg" id="hPY-QN-Sgi"/>
+                <outlet property="pokeDescription" destination="AWI-ns-Urx" id="8C9-yh-F6l"/>
+                <outlet property="pokemonImage" destination="DRq-Ns-WR1" id="wil-gJ-T5h"/>
                 <outlet property="secondType" destination="99o-P5-tdJ" id="M6c-B2-sqK"/>
                 <outlet property="typeLabel" destination="ADs-E5-NrM" id="M7M-Ma-IuF"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

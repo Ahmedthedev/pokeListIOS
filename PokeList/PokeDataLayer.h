@@ -6,8 +6,9 @@
 //  Copyright © 2017 grp1.moc. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "RootViewController.h"
+#import "FeaturesViewController.h"
 #import "PokemonTableViewCell.h"
 #import "Pokemon.h"
 
@@ -18,6 +19,9 @@
 
 /// Récupère un Pokemon depuis le webservice avec son id
 + (Pokemon*) getPokemonWithId:(unsigned short) pokemonId;
+
+/// Récupère un Pokemon depuis le webservice avec son id
++ (void) getPokemonWithId:(unsigned short) pokemonId andFeatureView:(id) featureView;
 
 /// Récupère tous les types existant de pokemon ---> NOT IMPLEMENTED
 + (NSMutableArray<NSString*>*) getAllPokemonTypes;
