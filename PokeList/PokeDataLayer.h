@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "RootViewController.h"
-#import "FeaturesViewController.h"
 #import "PokemonTableViewCell.h"
 #import "Pokemon.h"
+@class FeaturesViewController;
 
 @interface PokeDataLayer : NSObject
 
@@ -21,7 +21,7 @@
 + (Pokemon*) getPokemonWithId:(unsigned short) pokemonId;
 
 /// Récupère un Pokemon depuis le webservice avec son id
-+ (void) getPokemonWithId:(unsigned short) pokemonId andFeatureView:(id) featureView;
++ (void) getPokemonWithId:(unsigned short) pokemonId andFeatureView:(FeaturesViewController*) featureView;
 
 /// Récupère tous les types existant de pokemon ---> NOT IMPLEMENTED
 + (NSMutableArray<NSString*>*) getAllPokemonTypes;

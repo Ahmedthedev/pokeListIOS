@@ -6,9 +6,8 @@
 //  Copyright © 2017 grp1.moc. All rights reserved.
 //
 
-#import "AppDelegate.h"
 #import "FeaturesViewController.h"
-#import "Tools.h"
+#import "PokeDataLayer.h"
 
 @interface FeaturesViewController ()
 

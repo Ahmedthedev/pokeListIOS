@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Pokemon.h"
-#import "PokeDataLayer.h"
+#import "FeaturesViewController.h"
+#import "Tools.h"
+
 
 @interface FeaturesViewController : UIViewController{
     @private

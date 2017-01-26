@@ -7,6 +7,7 @@
 //
 
 #import "PokeDataLayer.h"
+#import "FeaturesViewController.h"
 
 @implementation PokeDataLayer
 
@@ -50,7 +51,7 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
     return pokemon;
 }
 
-+ (void) getPokemonWithId:(unsigned short) pokemonId andFeatureView:(id) featureView {
++ (void) getPokemonWithId:(unsigned short) pokemonId andFeatureView:(FeaturesViewController*) featureView {
     __block Pokemon *pokemon = nil;
     NSURLSession* session = [NSURLSession sharedSession];
     NSURLRequest* request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%hu", baseApiUrl, @"/pokemon/", pokemonId]]];
@@ -59,13 +60,13 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
             NSError* jsonError = nil;
             NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
             pokemon = [[Pokemon alloc] initWithNSDictionnary:dict];
-            [PokeDataLayer getPokemonImageWithId:pokemonId andImageView:((FeaturesViewController*)featureView).pokemonImage];
+            [PokeDataLayer getPokemonImageWithId:pokemonId andImageView:featureView.pokemonImage];
             // On quitte le mode asynchrone pour impacter la vue
             dispatch_async(dispatch_get_main_queue(), ^{
-                ((FeaturesViewController*) featureView).firstType.text = [pokemon.types objectAtIndex:0];
-                ((FeaturesViewController*) featureView).secondType.text = [pokemon.types objectAtIndex:1];
-                ((FeaturesViewController*) featureView).weight.text = pokemon.weight.minimum;
-                ((FeaturesViewController*) featureView).name.text = pokemon.name;
+                featureView.firstType.text = [pokemon.types objectAtIndex:0];
+                featureView.secondType.text = [pokemon.types objectAtIndex:1];
+                featureView.weight.text = pokemon.weight.minimum;
+                featureView.name.text = pokemon.name;
             });
         }
     }];
