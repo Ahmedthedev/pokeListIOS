@@ -46,8 +46,7 @@ static NSString* const kCellId = @"Cell";
     LoadingViewController *loadingView = [[LoadingViewController alloc] init];
     [self presentViewController:loadingView animated:YES completion:nil];
     // Appel de la methode static pour récupèrer les données
-    self.pokemonList = [PokeDataLayer getAllPokemonsWithRootView:self];
-    [loadingView dismissViewControllerAnimated:YES completion:nil];
+    self.pokemonList = [PokeDataLayer getAllPokemonsWithRootView:self andLoadingView:loadingView];
 }
 
 - (void) viewWillAppear:(BOOL)animated{

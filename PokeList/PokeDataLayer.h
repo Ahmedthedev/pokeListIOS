@@ -11,11 +11,12 @@
 #import "PokemonTableViewCell.h"
 #import "Pokemon.h"
 @class FeaturesViewController;
+@class LoadingViewController;
 
 @interface PokeDataLayer : NSObject
 
 /// Récupère tous les Pokemon depuis le webservice
-+ (NSMutableArray<Pokemon*>*) getAllPokemonsWithRootView:(RootViewController*) view;
++ (NSMutableArray<Pokemon*>*) getAllPokemonsWithRootView:(RootViewController*) view andLoadingView:(LoadingViewController*) loadingView;
 
 /// Récupère un Pokemon depuis le webservice avec son id
 + (Pokemon*) getPokemonWithId:(unsigned short) pokemonId;

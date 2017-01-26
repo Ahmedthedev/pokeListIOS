@@ -8,6 +8,7 @@
 
 #import "PokeDataLayer.h"
 #import "FeaturesViewController.h"
+#import "LoadingViewController.h"
 
 @implementation PokeDataLayer
 
@@ -15,7 +16,7 @@
 const NSString *baseApiUrl = @"http://pokelist.azurewebsites.net/api";
 const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokelist/assets";
 
-+ (NSMutableArray<Pokemon*>*) getAllPokemonsWithRootView:(RootViewController*) view {
++ (NSMutableArray<Pokemon*>*) getAllPokemonsWithRootView:(RootViewController*) view andLoadingView:(LoadingViewController*) loadingView{
     __block NSMutableArray<Pokemon*> *pokemonsList = [[NSMutableArray alloc] init];
     NSURLSession* session = [NSURLSession sharedSession];
     NSURLRequest* request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", baseApiUrl, @"/pokemon" ]]];
@@ -30,6 +31,7 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
         // On quitte le mode asynchrone pour impacter la vue
         dispatch_async(dispatch_get_main_queue(), ^{
             [view reloadTableView];
+            [loadingView dismissViewControllerAnimated:YES completion:nil];
         });
     }];
     [dataTask resume];
