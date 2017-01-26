@@ -63,10 +63,19 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
             [PokeDataLayer getPokemonImageWithId:pokemonId andImageView:featureView.pokemonImage];
             // On quitte le mode asynchrone pour impacter la vue
             dispatch_async(dispatch_get_main_queue(), ^{
-                featureView.firstType.text = [pokemon.types objectAtIndex:0];
-                featureView.secondType.text = [pokemon.types objectAtIndex:1];
-                featureView.weight.text = pokemon.weight.minimum;
                 featureView.name.text = pokemon.name;
+                featureView.weight.text = pokemon.weight.minimum;
+                if([pokemon.types count] > 0){
+                    featureView.firstType.text = [pokemon.types objectAtIndex:0];
+                }else{
+                    featureView.firstType.text = @"---";
+                }
+                if([pokemon.types count] > 1){
+                    featureView.secondType.text = [pokemon.types objectAtIndex:0];
+                }else{
+                    featureView.secondType.text = @"---";
+                }
+                featureView.pokeDescription.text = pokemon.classification;
             });
         }
     }];
