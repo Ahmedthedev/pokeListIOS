@@ -80,47 +80,49 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
 
 + (void) getPokemonSpriteWithId:(unsigned short) pokemonId andCell:(PokemonTableViewCell*) cell{
     cell.pokemonSprite.image = [UIImage imageNamed:@"Pokeball"];
-    dispatch_async(dispatch_get_global_queue(0,0), ^{
-        // %hu unsigned short
-        NSString *spriteUrl = [NSString stringWithFormat:@"%@/sprites/%hu.png", baseImageUrl, pokemonId];
+    
+    NSString *spriteUrl = [NSString stringWithFormat:@"%@/sprites/%hu.png", baseImageUrl, pokemonId];
 #ifndef NDEBUG
-        /* Debug only code */ /* Code compilé uniquement en mode debug ! */
-        NSLog(@"DEBUG --> Sprite URL --> %hu", pokemonId);
-        NSLog(@"DEBUG --> Sprite URL --> %@", spriteUrl);
+    /* Debug only code */ /* Code compilé uniquement en mode debug ! */
+    NSLog(@"DEBUG --> Sprite URL --> %hu", pokemonId);
+    NSLog(@"DEBUG --> Sprite URL --> %@", spriteUrl);
 #endif
-        NSData * data = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: spriteUrl]];
-        if (data != nil){
+    
+    NSURLSession* session = [NSURLSession sharedSession];
+    NSURLRequest* request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:spriteUrl]];
+    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if(!error){
+            
+            // On quitte le mode asynchrone pour impacter la vue
             dispatch_async(dispatch_get_main_queue(), ^{
-                // Image récuperer du serveur
-                cell.pokemonSprite.image = [UIImage imageWithData: data];
+                cell.pokemonSprite.image = [UIImage imageWithData:data];
             });
         }
-    });
+    }];
+    [dataTask resume];
 }
 
 + (void) getPokemonImageWithId:(unsigned short) pokemonId andImageView:(UIImageView*) imageView{
     imageView.image = nil;
-    dispatch_async(dispatch_get_global_queue(0,0), ^{
-        // %hu unsigned short
-        NSString *imageUrl = [NSString stringWithFormat:@"%@/%hu.png", baseImageUrl, pokemonId];
+    NSString *imageUrl = [NSString stringWithFormat:@"%@/%hu.png", baseImageUrl, pokemonId];
 #ifndef NDEBUG
-        /* Debug only code */ /* Code compilé uniquement en mode debug ! */
-        NSLog(@"DEBUG --> Image URL --> %hu", pokemonId);
-        NSLog(@"DEBUG --> Image URL --> %@", imageUrl);
+    /* Debug only code */ /* Code compilé uniquement en mode debug ! */
+    NSLog(@"DEBUG --> Image URL --> %hu", pokemonId);
+    NSLog(@"DEBUG --> Image URL --> %@", imageUrl);
 #endif
-        NSData * data = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: imageUrl]];
-        if (data == nil){
+    
+    NSURLSession* session = [NSURLSession sharedSession];
+    NSURLRequest* request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:imageUrl]];
+    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if(!error){
+            
+            // On quitte le mode asynchrone pour impacter la vue
             dispatch_async(dispatch_get_main_queue(), ^{
-                // Image par defaut si image non télécharger (inexistant sur le serveur)
-                imageView.image = [UIImage imageNamed:@"LaunchScreenIcon"];
-            });
-        }else{
-            dispatch_async(dispatch_get_main_queue(), ^{
-                // Image récuperer du serveur
-                imageView.image = [UIImage imageWithData: data];
+                imageView.image = [UIImage imageWithData:data];
             });
         }
-    });
+    }];
+    [dataTask resume];
 }
 
 + (NSMutableArray<NSString*>*) getPokemonNamesWithString:(NSString*) searchPattern{
