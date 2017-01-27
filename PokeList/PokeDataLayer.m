@@ -73,7 +73,7 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
                     featureView.firstType.text = @"---";
                 }
                 if([pokemon.types count] > 1){
-                    featureView.secondType.text = [pokemon.types objectAtIndex:0];
+                    featureView.secondType.text = [pokemon.types objectAtIndex:1];
                 }else{
                     featureView.secondType.text = @"---";
                 }
