@@ -41,7 +41,7 @@ static NSString* const kCellId = @"Cell";
     [super viewDidLoad];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    // self.tableView.separatorColor = [UIColor clearColor];
+    self.tableView.separatorColor = [UIColor clearColor];
     self.pokemonList = [[NSMutableArray alloc] init];
     LoadingViewController *loadingView = [[LoadingViewController alloc] init];
     [self presentViewController:loadingView animated:YES completion:nil];
