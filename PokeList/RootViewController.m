@@ -44,7 +44,7 @@ static NSString* const kCellId = @"Cell";
     self.tableView.separatorColor = [UIColor clearColor];
     self.pokemonList = [[NSMutableArray alloc] init];
     LoadingViewController *loadingView = [[LoadingViewController alloc] init];
-    [self presentViewController:loadingView animated:YES completion:nil];
+    [self presentViewController:loadingView animated:NO completion:nil];
     // Appel de la methode static pour récupèrer les données
     self.pokemonList = [PokeDataLayer getAllPokemonsWithRootView:self andLoadingView:loadingView];
 }
