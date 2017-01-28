@@ -13,4 +13,7 @@
 /// Convertis le format HEX (0xFFFFFF) en UIColor
 + (UIColor*) UIColorFromRGB:(unsigned) hexValue;
 
+/// Retourne YES si l'iphone est connecté a internet
++ (bool) isInternetConnected;
+
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "Tools.h"
+#import "Reachability.h"
 
 @implementation Tools
 
@@ -15,6 +16,15 @@
                            green:((float)((hexValue & 0x00FF00) >>  8))/255.0 \
                             blue:((float)((hexValue & 0x0000FF) >>  0))/255.0 \
                            alpha:1.0];
+}
+
++ (bool) isInternetConnected{
+    Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
+    NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
+    if (networkStatus == NotReachable) {
+        return NO;
+    }
+    return YES;
 }
 
 @end
