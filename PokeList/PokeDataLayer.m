@@ -66,6 +66,7 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
             // On quitte le mode asynchrone pour impacter la vue
             dispatch_async(dispatch_get_main_queue(), ^{
                 featureView.name.text = pokemon.name;
+                featureView.title = pokemon.name;
                 featureView.weight.text = pokemon.weight.minimum;
                 if([pokemon.types count] > 0){
                     featureView.firstType.text = [pokemon.types objectAtIndex:0];
