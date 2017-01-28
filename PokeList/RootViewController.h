@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Pokemon.h"
+@class LoadingViewController;
 
 @interface RootViewController : UIViewController{
     @private
@@ -19,4 +20,8 @@
 
 /// Recharge la table view
 - (void) reloadTableView;
+
+/// Verifie l'existance d'une connection internet
+/// et charge les éléments dans la tableview
+- (void) loadPokemonInTableViewWithLoadingView:(LoadingViewController*) loadingView;
 @end

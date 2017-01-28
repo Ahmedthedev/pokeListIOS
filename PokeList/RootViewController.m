@@ -46,7 +46,7 @@ static NSString* const kCellId = @"Cell";
     LoadingViewController *loadingView = [[LoadingViewController alloc] init];
     [self presentViewController:loadingView animated:NO completion:nil];
     // Appel de la methode static pour récupèrer les données
-    self.pokemonList = [PokeDataLayer getAllPokemonsWithRootView:self andLoadingView:loadingView];
+    [self loadPokemonInTableViewWithLoadingView:loadingView];
 }
 
 - (void) viewWillAppear:(BOOL)animated{
@@ -93,6 +93,26 @@ static NSString* const kCellId = @"Cell";
 
 - (void) reloadTableView{
     [self.tableView reloadData];
+}
+
+- (void) loadPokemonInTableViewWithLoadingView:(LoadingViewController*) loadingView{
+    if([Tools isInternetConnected]){
+        [self.pokemonList removeAllObjects];
+        self.pokemonList = [PokeDataLayer getAllPokemonsWithRootView:self andLoadingView:loadingView];
+    }else{
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Information" message:@"Your phone must be connected to internet to use this app.\n Please check your connection and try again." preferredStyle:UIAlertControllerStyleActionSheet];
+        UIAlertAction *quitAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
+            exit(0);
+        }];
+        
+        UIAlertAction * refreshAction = [UIAlertAction actionWithTitle:@"Refresh" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            [self loadPokemonInTableViewWithLoadingView:loadingView];
+        }];
+        [alertController addAction:quitAction];
+        [alertController addAction:refreshAction];
+        [loadingView presentViewController:alertController animated: YES completion: nil];
+        // [loadingView dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
