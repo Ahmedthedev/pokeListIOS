@@ -79,6 +79,7 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
                     featureView.secondType.text = @"---";
                 }
                 featureView.pokeDescription.text = pokemon.classification;
+                featureView.height.text = pokemon.height.maximum;
             });
         }
     }];
