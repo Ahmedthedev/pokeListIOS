@@ -26,6 +26,8 @@ static NSString* const kCellId = @"Cell";
 - (instancetype) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if(self != nil){
+        // Placé la searchbar sous la navigation bar
+        self.edgesForExtendedLayout = UIRectEdgeNone;
         UIButton *uIBtnAbout = [UIButton buttonWithType:UIButtonTypeInfoLight];
         [uIBtnAbout addTarget:self action:@selector(btnAbout_Click:) forControlEvents:UIControlEventTouchUpInside];
         UIBarButtonItem *btnAbout = [[UIBarButtonItem alloc] initWithCustomView:uIBtnAbout];
