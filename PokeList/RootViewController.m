@@ -15,7 +15,7 @@
 #import "Pokemon.h"
 #import "PokeDataLayer.h"
 
-@interface RootViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface RootViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 
 @end
 
@@ -44,6 +44,8 @@ static NSString* const kCellId = @"Cell";
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.separatorColor = [UIColor clearColor];
+    self.searchBar.delegate = self;
+    self.searchBar.showsCancelButton = YES;
     self.pokemonList = [[NSMutableArray alloc] init];
     LoadingViewController *loadingView = [[LoadingViewController alloc] init];
     [self presentViewController:loadingView animated:NO completion:nil];
@@ -97,23 +99,26 @@ static NSString* const kCellId = @"Cell";
     [self.tableView reloadData];
 }
 
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    [searchBar resignFirstResponder];
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    [searchBar resignFirstResponder];
+}
+
 - (void) loadPokemonInTableViewWithLoadingView:(LoadingViewController*) loadingView{
     if([Tools isInternetConnected]){
         [self.pokemonList removeAllObjects];
         self.pokemonList = [PokeDataLayer getAllPokemonsWithRootView:self andLoadingView:loadingView];
     }else{
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Information" message:@"Your phone must be connected to internet to use this app.\n Please check your connection and try again." preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *quitAction = [UIAlertAction actionWithTitle:@"Exit" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * action) {
-            exit(0);
-        }];
         
         UIAlertAction * refreshAction = [UIAlertAction actionWithTitle:@"Try again" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
             [self loadPokemonInTableViewWithLoadingView:loadingView];
         }];
         [alertController addAction:refreshAction];
-        [alertController addAction:quitAction];
         [loadingView presentViewController:alertController animated: YES completion: nil];
-        // [loadingView dismissViewControllerAnimated:YES completion:nil];
     }
 }
 

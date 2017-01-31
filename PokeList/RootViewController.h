@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) NSMutableArray<Pokemon*> *pokemonList;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 /// Recharge la table view
 - (void) reloadTableView;
