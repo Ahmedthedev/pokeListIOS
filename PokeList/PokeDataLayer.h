@@ -18,6 +18,10 @@
 /// Récupère tous les Pokemon depuis le webservice
 + (NSMutableArray<Pokemon*>*) getAllPokemonsWithRootView:(RootViewController*) view andLoadingView:(LoadingViewController*) loadingView;
 
+/// Récupère tous les Pokemon depuis le webservice avec
+/// la chaine de caractère fournie en paramètre
++ (NSMutableArray<Pokemon*>*) getAllPokemonsWithRootView:(RootViewController*) view  andSearchPattern:(NSString*) pattern;
+
 /// Récupère un Pokemon depuis le webservice avec son id
 + (Pokemon*) getPokemonWithId:(unsigned short) pokemonId;
 

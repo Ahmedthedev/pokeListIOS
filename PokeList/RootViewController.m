@@ -104,6 +104,7 @@ static NSString* const kCellId = @"Cell";
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    self.pokemonList = [PokeDataLayer getAllPokemonsWithRootView:self andSearchPattern:searchBar.text];
     [searchBar resignFirstResponder];
 }
 
