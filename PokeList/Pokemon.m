@@ -41,6 +41,7 @@
         
         self.number = (NSString*)[dict objectForKey:@"number"];
         self.name = (NSString*)[dict objectForKey:@"name"];
+        //self.classification = (NSString*)[dict objectForKey:@"classification"];
         self.classification = (NSString*)[dict objectForKey:@"classification"];
         tmp = [dict objectForKey:@"types"];
         if(![tmp isEqual:[NSNull null]]){

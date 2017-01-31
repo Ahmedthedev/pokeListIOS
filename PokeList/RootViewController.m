@@ -44,9 +44,9 @@ static NSString* const kCellId = @"Cell";
     self.tableView.separatorColor = [UIColor clearColor];
     self.pokemonList = [[NSMutableArray alloc] init];
     LoadingViewController *loadingView = [[LoadingViewController alloc] init];
-    [self presentViewController:loadingView animated:YES completion:nil];
+    [self presentViewController:loadingView animated:NO completion:nil];
     // Appel de la methode static pour récupèrer les données
-    self.pokemonList = [PokeDataLayer getAllPokemonsWithRootView:self andLoadingView:loadingView];
+    [self loadPokemonInTableViewWithLoadingView:loadingView];
 }
 
 - (void) viewWillAppear:(BOOL)animated{
@@ -93,6 +93,26 @@ static NSString* const kCellId = @"Cell";
 
 - (void) reloadTableView{
     [self.tableView reloadData];
+}
+
+- (void) loadPokemonInTableViewWithLoadingView:(LoadingViewController*) loadingView{
+    if([Tools isInternetConnected]){
+        [self.pokemonList removeAllObjects];
+        self.pokemonList = [PokeDataLayer getAllPokemonsWithRootView:self andLoadingView:loadingView];
+    }else{
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Information" message:@"Your phone must be connected to internet to use this app.\n Please check your connection and try again." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *quitAction = [UIAlertAction actionWithTitle:@"Exit" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * action) {
+            exit(0);
+        }];
+        
+        UIAlertAction * refreshAction = [UIAlertAction actionWithTitle:@"Try again" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            [self loadPokemonInTableViewWithLoadingView:loadingView];
+        }];
+        [alertController addAction:refreshAction];
+        [alertController addAction:quitAction];
+        [loadingView presentViewController:alertController animated: YES completion: nil];
+        // [loadingView dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
