@@ -16,4 +16,6 @@
 /// Retourne YES si l'iphone est connecté a internet
 + (bool) isInternetConnected;
 
++ (UIImage*) getUIImageWithView:(UIView*) view;
+
 @end

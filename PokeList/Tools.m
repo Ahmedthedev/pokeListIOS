@@ -8,6 +8,8 @@
 
 #import "Tools.h"
 #import "Reachability.h"
+#import <QuartzCore/QuartzCore.h>
+#import "AboutViewController.h"
 
 @implementation Tools
 
@@ -25,6 +27,17 @@
         return NO;
     }
     return YES;
+}
+
++ (UIImage*) getUIImageWithView:(UIView*) view{
+    UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 0.0);
+    [view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    
+    UIImage * img = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return img;
 }
 
 @end

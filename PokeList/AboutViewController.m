@@ -7,6 +7,8 @@
 //
 
 #import "AboutViewController.h"
+#import "Tools.h"
+
 
 @interface AboutViewController ()
 
@@ -28,23 +30,11 @@
 }
 
 - (IBAction)btnshare:(id)sender {
-    NSString *textToShare = @"Look at this awesome website for aspiring iOS Developers!";
+
     
-    /*NSArray *objectsToShare = @[textToShare];
-    UIActivityViewController *controller = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
-    [self presentViewController:controller animated:YES completion:nil];*/
+    UIImage *image = [Tools getUIImageWithView:self.view];
     
-    
-    /*NSArray *activityItems = @[textToShare];
-    UIActivityViewController *activityViewControntroller = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
-    activityViewControntroller.excludedActivityTypes = @[];
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        activityViewControntroller.popoverPresentationController.sourceView = self.view;
-        activityViewControntroller.popoverPresentationController.sourceRect = CGRectMake(self.view.bounds.size.width/2, self.view.bounds.size.height/4, 0, 0);
-    }
-    [self presentViewController:activityViewControntroller animated:true completion:nil];*/
-    
-    NSArray* sharedObjects=[NSArray arrayWithObjects:@"sharecontent",  nil];
+    NSArray* sharedObjects=[NSArray arrayWithObjects:@"sharecontent",  image, nil];
     UIActivityViewController *activityViewController = [[UIActivityViewController alloc]                                                                initWithActivityItems:sharedObjects applicationActivities:nil];
     activityViewController.popoverPresentationController.sourceView = self.view;
     [self presentViewController:activityViewController animated:YES completion:nil];
