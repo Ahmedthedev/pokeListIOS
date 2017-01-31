@@ -62,6 +62,7 @@ static NSString* const kCellId = @"Cell";
     self.navigationController.navigationBar.barStyle = UIStatusBarStyleLightContent;
     NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
     if (indexPath) {
+        // Deselectionne l'elemen de la tableview
         [self.tableView deselectRowAtIndexPath:indexPath animated:animated];
     }
 }
@@ -99,13 +100,25 @@ static NSString* const kCellId = @"Cell";
     [self.tableView reloadData];
 }
 
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    self.pokemonList = [PokeDataLayer getAllPokemonsWithRootView:self andSearchPattern:searchBar.text];
+    [self.tableView reloadData];
     [searchBar resignFirstResponder];
 }
 
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
-    self.pokemonList = [PokeDataLayer getAllPokemonsWithRootView:self andSearchPattern:searchBar.text];
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    if(![self.searchBar.text isEqualToString:@""]){
+        self.pokemonList = [PokeDataLayer getAllPokemonsWithRootView:self andSearchPattern:searchBar.text];
+        [self.tableView reloadData];
+    }else{
+        [self loadPokemonInTableViewWithLoadingView:[[LoadingViewController alloc] init]];
+    }
+    
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
     [searchBar resignFirstResponder];
+    [self loadPokemonInTableViewWithLoadingView:[[LoadingViewController alloc] init]];
 }
 
 - (void) loadPokemonInTableViewWithLoadingView:(LoadingViewController*) loadingView{
