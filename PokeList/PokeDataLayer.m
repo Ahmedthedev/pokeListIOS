@@ -70,6 +70,7 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
                 featureView.weight.text = pokemon.weight.minimum;
                 if([pokemon.types count] > 0){
                     featureView.firstType.text = [pokemon.types objectAtIndex:0];
+                    featureView.backgroundImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"BG%@.png", [pokemon.types objectAtIndex:0]]];
                 }else{
                     featureView.firstType.text = @"---";
                 }

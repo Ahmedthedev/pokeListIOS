@@ -30,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *height;
 @property (weak, nonatomic) IBOutlet UILabel *pokeDescription;
 @property (weak, nonatomic) IBOutlet UILabel *name;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
 
 @property (strong, nonatomic) Pokemon* pokemon;
 @property (assign, nonatomic) unsigned short currentPokemonId;

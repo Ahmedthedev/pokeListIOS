@@ -40,11 +40,11 @@
     UIBarButtonItem* shareBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(sharePokemon:)];
     shareBtn.tintColor = [UIColor blackColor];
     self.navigationItem.rightBarButtonItem = shareBtn;
-    
     [self.view addSubview:self.featureScrollView];
     CGSize viewSize = self.view.frame.size;
     viewSize.height += 50 + [self getLabelHeight:self.pokeDescription] * 12;
     self.featureScrollView.contentSize = viewSize;
+    
     [self loadPokemonDataWithPokemonId:self.currentPokemonId];
 }
 

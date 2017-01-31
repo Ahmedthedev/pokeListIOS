@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeaturesViewController">
             <connections>
+                <outlet property="backgroundImage" destination="fmW-fh-XLd" id="42X-SV-1T5"/>
                 <outlet property="featureScrollView" destination="Wsf-io-Xdd" id="zl4-dg-FM2"/>
                 <outlet property="featureView" destination="1Il-R3-vhC" id="dqO-yI-CTo"/>
                 <outlet property="firstType" destination="Wb3-gn-7tC" id="kaZ-Tf-wQw"/>
