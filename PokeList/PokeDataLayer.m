@@ -38,6 +38,27 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
     return pokemonsList;
 }
 
++ (NSMutableArray<Pokemon*>*) getAllPokemonsWithRootView:(RootViewController*) view andSearchPattern:(NSString*) pattern{
+    __block NSMutableArray<Pokemon*> *pokemonsList = [[NSMutableArray alloc] init];
+    NSURLSession* session = [NSURLSession sharedSession];
+    NSURLRequest* request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%@", baseApiUrl, @"/pokemon/search/", pattern]]];
+    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if(!error){
+            NSError* jsonError = nil;
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+            for (id key in dict) {
+                [pokemonsList addObject:[[Pokemon alloc] initWithNSDictionnary:key]];
+            }
+        }
+        // On quitte le mode asynchrone pour impacter la vue
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [view reloadTableView];
+        });
+    }];
+    [dataTask resume];
+    return pokemonsList;
+}
+
 + (Pokemon*) getPokemonWithId:(unsigned short) pokemonId{
     __block Pokemon *pokemon = nil;
     NSURLSession* session = [NSURLSession sharedSession];
@@ -70,7 +91,9 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
                 featureView.weight.text = pokemon.weight.minimum;
                 if([pokemon.types count] > 0){
                     featureView.firstType.text = [pokemon.types objectAtIndex:0];
+                    featureView.backgroundImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"BG%@.png", [pokemon.types objectAtIndex:0]]];
                 }else{
+                    featureView.backgroundImage.image = [[UIImage alloc] init];
                     featureView.firstType.text = @"---";
                 }
                 if([pokemon.types count] > 1){
@@ -79,6 +102,7 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
                     featureView.secondType.text = @"---";
                 }
                 featureView.pokeDescription.text = pokemon.classification;
+                featureView.height.text = pokemon.height.maximum;
             });
         }
     }];
