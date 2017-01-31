@@ -36,14 +36,25 @@
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [Tools UIColorFromRGB:0xB71C1C]}];
     self.featureScrollView.showsVerticalScrollIndicator = NO;
+    
+    UIBarButtonItem* shareBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(sharePokemon:)];
+    shareBtn.tintColor = [UIColor blackColor];
+    self.navigationItem.rightBarButtonItem = shareBtn;
+    
     [self.view addSubview:self.featureScrollView];
-    [self.featureScrollView setContentSize:CGSizeMake(0,self.featureView.frame.size.height*1.668)];
-    [self.featureScrollView addSubview:self.featureView];
+    CGSize viewSize = self.view.frame.size;
+    viewSize.height += 50 + [self getLabelHeight:self.pokeDescription] * 12;
+    self.featureScrollView.contentSize = viewSize;
     [self loadPokemonDataWithPokemonId:self.currentPokemonId];
 }
 
+// A faire
+- (void) sharePokemon:(Pokemon*) pokemon {
+    
+}
+
 - (void) loadPokemonDataWithPokemonId:(unsigned short) pokemonId{
-    if([Tools isInternetConnected]){
+    if([Tools isInternetConnected]) {
         [PokeDataLayer getPokemonWithId:pokemonId andFeatureView:self];
     }else{
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Information" message:@"Your phone must be connected to internet to use this app.\n Please check your connection and try again." preferredStyle:UIAlertControllerStyleAlert];
@@ -58,6 +69,22 @@
         [alertController addAction:quitAction];
         [self presentViewController:alertController animated:YES completion:nil];
     }
+}
+
+- (CGFloat)getLabelHeight:(UILabel*)label
+{
+    CGSize constraint = CGSizeMake(label.frame.size.width, CGFLOAT_MAX);
+    CGSize size;
+    
+    NSStringDrawingContext *context = [[NSStringDrawingContext alloc] init];
+    CGSize boundingBox = [label.text boundingRectWithSize:constraint
+                                                  options:NSStringDrawingUsesLineFragmentOrigin
+                                               attributes:@{NSFontAttributeName:label.font}
+                                                  context:context].size;
+    
+    size = CGSizeMake(ceil(boundingBox.width), ceil(boundingBox.height));
+    
+    return size.height;
 }
 
 - (void)didReceiveMemoryWarning {
