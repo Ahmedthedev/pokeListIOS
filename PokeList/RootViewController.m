@@ -101,14 +101,15 @@ static NSString* const kCellId = @"Cell";
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
-    self.pokemonList = [PokeDataLayer getAllPokemonsWithRootView:self andSearchPattern:searchBar.text];
+    [self loadPokemonSearchResultIntTableView];
     [self.tableView reloadData];
     [searchBar resignFirstResponder];
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     if(![self.searchBar.text isEqualToString:@""]){
-        self.pokemonList = [PokeDataLayer getAllPokemonsWithRootView:self andSearchPattern:searchBar.text];
+        [self loadPokemonSearchResultIntTableView];
+        // self.pokemonList = [PokeDataLayer getAllPokemonsWithRootView:self andSearchPattern:searchBar.text];
         [self.tableView reloadData];
     }else{
         [self loadPokemonInTableViewWithLoadingView:[[LoadingViewController alloc] init]];
@@ -133,6 +134,21 @@ static NSString* const kCellId = @"Cell";
         }];
         [alertController addAction:refreshAction];
         [loadingView presentViewController:alertController animated: YES completion: nil];
+    }
+}
+
+- (void) loadPokemonSearchResultIntTableView{
+    if([Tools isInternetConnected]){
+        [self.pokemonList removeAllObjects];
+        self.pokemonList = [PokeDataLayer getAllPokemonsWithRootView:self andSearchPattern:self.searchBar.text];
+    }else{
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Information" message:@"Your phone must be connected to internet to use this app.\n Please check your connection and try again." preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction * refreshAction = [UIAlertAction actionWithTitle:@"Try again" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            [self loadPokemonSearchResultIntTableView];
+        }];
+        [alertController addAction:refreshAction];
+        [self presentViewController:alertController animated: YES completion: nil];
     }
 }
 

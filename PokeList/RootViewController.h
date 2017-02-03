@@ -25,4 +25,7 @@
 /// Verifie l'existance d'une connection internet
 /// et charge les éléments dans la tableview
 - (void) loadPokemonInTableViewWithLoadingView:(LoadingViewController*) loadingView;
+
+- (void) loadPokemonSearchResultIntTableView;
+
 @end
