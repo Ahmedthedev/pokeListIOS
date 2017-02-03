@@ -74,7 +74,7 @@ static NSString* const kCellId = @"Cell";
 - (void) btnAbout_Click:(id) sender{
 #ifndef NDEBUG
     /* Debug only code */ /* Code compilé uniquement en mode debug ! */
-    NSLog(@"DEBUG --> About button was pressed");
+    //NSLog(@"DEBUG --> About button was pressed");
 #endif
     AboutViewController* aboutView = [[AboutViewController alloc] init];
     [self presentViewController:aboutView animated:YES completion:nil];
@@ -84,7 +84,7 @@ static NSString* const kCellId = @"Cell";
 #ifndef NDEBUG
     /* Debug only code */ /* Code compilé uniquement en mode debug ! */
     // %lu = unsigned long
-    NSLog(@"DEBUG --> Pokemon count = %lu", (unsigned long)[self.pokemonList count]);
+    // NSLog(@"DEBUG --> Pokemon count = %lu", (unsigned long)[self.pokemonList count]);
 #endif
     return [self.pokemonList count];
 }
