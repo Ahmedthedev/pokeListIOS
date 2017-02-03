@@ -120,8 +120,8 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
     NSString *spriteUrl = [NSString stringWithFormat:@"%@/sprites/%hu.png", baseImageUrl, pokemonId];
 #ifndef NDEBUG
     /* Debug only code */ /* Code compilé uniquement en mode debug ! */
-    NSLog(@"DEBUG --> Sprite URL --> %hu", pokemonId);
-    NSLog(@"DEBUG --> Sprite URL --> %@", spriteUrl);
+    //NSLog(@"DEBUG --> Sprite URL --> %hu", pokemonId);
+    //NSLog(@"DEBUG --> Sprite URL --> %@", spriteUrl);
 #endif
     
     NSURLSession* session = [NSURLSession sharedSession];
@@ -143,8 +143,8 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
     NSString *imageUrl = [NSString stringWithFormat:@"%@/%hu.png", baseImageUrl, pokemonId];
 #ifndef NDEBUG
     /* Debug only code */ /* Code compilé uniquement en mode debug ! */
-    NSLog(@"DEBUG --> Image URL --> %hu", pokemonId);
-    NSLog(@"DEBUG --> Image URL --> %@", imageUrl);
+    // NSLog(@"DEBUG --> Image URL --> %hu", pokemonId);
+   // NSLog(@"DEBUG --> Image URL --> %@", imageUrl);
 #endif
     
     NSURLSession* session = [NSURLSession sharedSession];
