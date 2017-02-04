@@ -10,4 +10,6 @@
 
 @interface PageControl : UIViewController
 
+//@property (weak) IBOutlet UIScrollView *scrollView;
+
 @end

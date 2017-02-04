@@ -8,6 +8,8 @@
 
 #import "FeaturesViewController.h"
 #import "PokeDataLayer.h"
+#import "PageControl.h"
+
 
 @interface FeaturesViewController ()
 
@@ -29,6 +31,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+  
     self.title = @"Loading...";
     self.navigationController.navigationBar.barTintColor = [Tools UIColorFromRGB:0xFFFFFF];
     // Couleur de la police du navigation bar
@@ -41,8 +44,14 @@
     shareBtn.tintColor = [UIColor blackColor];
     self.navigationItem.rightBarButtonItem = shareBtn;
     [self.view addSubview:self.featureScrollView];
-    CGSize viewSize = self.view.frame.size;
+    
+    CGSize viewSize = [UIScreen mainScreen].bounds.size;
+    
+    
+    //NSLog("%f",viewSize);
+    
     viewSize.height += 50 + [self getLabelHeight:self.pokeDescription] * 12;
+    viewSize.width -= 50;
     self.featureScrollView.contentSize = viewSize;
     
     [self loadPokemonDataWithPokemonId:self.currentPokemonId];
@@ -50,8 +59,11 @@
 
 // A faire
 - (void) sharePokemon:(Pokemon*) pokemon {
-    
+    PageControl * p = [[PageControl alloc] init];
+    [self presentViewController:p animated:YES completion:nil];
 }
+
+
 
 - (void) loadPokemonDataWithPokemonId:(unsigned short) pokemonId{
     if([Tools isInternetConnected]) {

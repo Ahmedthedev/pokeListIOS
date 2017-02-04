@@ -16,6 +16,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIScrollView* scrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width*3, self.view.frame.size.height)];
+    [self.view addSubview:scrollview];
+    [scrollview setContentSize:CGSizeMake( self.view.frame.size.width*3, self.view.frame.size.height) ];
+     
+     // Do any additional setup after loading the view, typically from a nib.
+
+     
+     scrollview.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
+     scrollview.pagingEnabled = YES;
+     scrollview.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:(0.5)];
+     
+    
+    
+    
+     //[scrollViewEvol addSubview:self.fireView];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -23,6 +39,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 /*
 #pragma mark - Navigation
