@@ -38,5 +38,6 @@
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil pokemonId:(unsigned short)pokeId;
 
 - (void) loadPokemonDataWithPokemonId:(unsigned short) pokemonId;
+- (IBAction)btnEvolClick:(UIButton *)sender;
 
 @end

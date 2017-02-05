@@ -30,8 +30,8 @@
 		055DA3991E3AADD500142669 /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 055DA3971E3AADD500142669 /* LoadingViewController.xib */; };
 		055F4F221E33F6850011FAB9 /* PokeDataLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 055F4F211E33F6850011FAB9 /* PokeDataLayer.m */; };
 		056DA0D11E3CBA2F00A0CC17 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 056DA0D01E3CBA2F00A0CC17 /* Reachability.m */; };
-		184DD8201E3CB20900C05FAD /* PageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 184DD81E1E3CB20900C05FAD /* PageControl.m */; };
-		184DD8211E3CB20900C05FAD /* PageControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184DD81F1E3CB20900C05FAD /* PageControl.xib */; };
+		058192F91E47A0640045BE88 /* PokemonFamilyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 058192F71E47A0640045BE88 /* PokemonFamilyViewController.m */; };
+		058192FA1E47A0640045BE88 /* PokemonFamilyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 058192F81E47A0640045BE88 /* PokemonFamilyViewController.xib */; };
 		184EC6501E3370F0005D4D5F /* FeaturesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184EC64E1E3370F0005D4D5F /* FeaturesViewController.m */; };
 		184EC6511E3370F0005D4D5F /* FeaturesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184EC64F1E3370F0005D4D5F /* FeaturesViewController.xib */; };
 /* End PBXBuildFile section */
@@ -78,9 +78,9 @@
 		055F4F211E33F6850011FAB9 /* PokeDataLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PokeDataLayer.m; sourceTree = "<group>"; };
 		056DA0CF1E3CBA2F00A0CC17 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		056DA0D01E3CBA2F00A0CC17 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		184DD81D1E3CB20900C05FAD /* PageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageControl.h; sourceTree = "<group>"; };
-		184DD81E1E3CB20900C05FAD /* PageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageControl.m; sourceTree = "<group>"; };
-		184DD81F1E3CB20900C05FAD /* PageControl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageControl.xib; sourceTree = "<group>"; };
+		058192F61E47A0640045BE88 /* PokemonFamilyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PokemonFamilyViewController.h; sourceTree = "<group>"; };
+		058192F71E47A0640045BE88 /* PokemonFamilyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PokemonFamilyViewController.m; sourceTree = "<group>"; };
+		058192F81E47A0640045BE88 /* PokemonFamilyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PokemonFamilyViewController.xib; sourceTree = "<group>"; };
 		184EC64D1E3370F0005D4D5F /* FeaturesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturesViewController.h; sourceTree = "<group>"; };
 		184EC64E1E3370F0005D4D5F /* FeaturesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeaturesViewController.m; sourceTree = "<group>"; };
 		184EC64F1E3370F0005D4D5F /* FeaturesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeaturesViewController.xib; sourceTree = "<group>"; };
@@ -159,9 +159,9 @@
 				184EC64D1E3370F0005D4D5F /* FeaturesViewController.h */,
 				184EC64E1E3370F0005D4D5F /* FeaturesViewController.m */,
 				184EC64F1E3370F0005D4D5F /* FeaturesViewController.xib */,
-				184DD81D1E3CB20900C05FAD /* PageControl.h */,
-				184DD81E1E3CB20900C05FAD /* PageControl.m */,
-				184DD81F1E3CB20900C05FAD /* PageControl.xib */,
+				058192F61E47A0640045BE88 /* PokemonFamilyViewController.h */,
+				058192F71E47A0640045BE88 /* PokemonFamilyViewController.m */,
+				058192F81E47A0640045BE88 /* PokemonFamilyViewController.xib */,
 				052CA8931E36B61400D8CB76 /* Tools.h */,
 				052CA8941E36B61400D8CB76 /* Tools.m */,
 				056DA0CF1E3CBA2F00A0CC17 /* Reachability.h */,
@@ -243,11 +243,11 @@
 			files = (
 				055DA3991E3AADD500142669 /* LoadingViewController.xib in Resources */,
 				055AFF501E2AB1620080C597 /* LaunchScreen.storyboard in Resources */,
+				058192FA1E47A0640045BE88 /* PokemonFamilyViewController.xib in Resources */,
 				052CA8921E36798300D8CB76 /* PokemonTableViewCell.xib in Resources */,
 				184EC6511E3370F0005D4D5F /* FeaturesViewController.xib in Resources */,
 				055AFF4D1E2AB1620080C597 /* Assets.xcassets in Resources */,
 				037498851E336F2D00836F9C /* AboutViewController.xib in Resources */,
-				184DD8211E3CB20900C05FAD /* PageControl.xib in Resources */,
 				055AFF5B1E2AB2E70080C597 /* RootViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,7 +259,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				184DD8201E3CB20900C05FAD /* PageControl.m in Sources */,
 				055AFF451E2AB1620080C597 /* AppDelegate.m in Sources */,
 				051439B41E2C15D9008E91CD /* NextEvolution.m in Sources */,
 				051439A51E2C1555008E91CD /* FastAttack.m in Sources */,
@@ -273,6 +272,7 @@
 				055F4F221E33F6850011FAB9 /* PokeDataLayer.m in Sources */,
 				055AFF421E2AB1620080C597 /* main.m in Sources */,
 				037498841E336F2D00836F9C /* AboutViewController.m in Sources */,
+				058192F91E47A0640045BE88 /* PokemonFamilyViewController.m in Sources */,
 				051439AE1E2C1594008E91CD /* Height.m in Sources */,
 				055AFF5A1E2AB2E70080C597 /* RootViewController.m in Sources */,
 				051439A81E2C156A008E91CD /* SpecialAttack.m in Sources */,

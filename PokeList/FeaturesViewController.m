@@ -8,7 +8,7 @@
 
 #import "FeaturesViewController.h"
 #import "PokeDataLayer.h"
-#import "PageControl.h"
+#import "PokemonFamilyViewController.h"
 
 
 @interface FeaturesViewController ()
@@ -59,8 +59,7 @@
 
 // A faire
 - (void) sharePokemon:(Pokemon*) pokemon {
-    PageControl * p = [[PageControl alloc] init];
-    [self presentViewController:p animated:YES completion:nil];
+    // [self presentViewController:p animated:YES completion:nil];
 }
 
 
@@ -81,6 +80,11 @@
         [alertController addAction:quitAction];
         [self presentViewController:alertController animated:YES completion:nil];
     }
+}
+
+- (IBAction)btnEvolClick:(UIButton *)sender {
+    PokemonFamilyViewController *evolView = [[PokemonFamilyViewController alloc] initWithNibName:@"PokemonFamilyViewController" bundle:nil pokemonId:self.currentPokemonId];
+    [self.navigationController pushViewController:evolView animated:YES];
 }
 
 - (CGFloat)getLabelHeight:(UILabel*)label
