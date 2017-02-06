@@ -92,7 +92,6 @@
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenWidth = screenRect.size.width;
     CGSize constraint = CGSizeMake(screenWidth, CGFLOAT_MAX);
-    NSLog(@"width === %f",screenWidth);
     CGSize size;
     
     NSStringDrawingContext *context = [[NSStringDrawingContext alloc] init];

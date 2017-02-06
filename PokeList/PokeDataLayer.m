@@ -55,7 +55,7 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
         dispatch_async(dispatch_get_main_queue(), ^{
             [view.mainScrollView setContentSize:CGSizeMake([UIScreen mainScreen].bounds.size.width * [pokemonIds count], [UIScreen mainScreen].bounds.size.width)];
             for(NSNumber* pokeId in pokemonIds){
-                [view addSubViewToScrollViewWithPokemonId:[pokeId shortValue]];
+                // [view addSubViewToScrollViewWithPokemonId:[pokeId shortValue]];
             }
         });
     }];
