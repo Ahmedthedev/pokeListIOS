@@ -12,11 +12,15 @@
 #import "Pokemon.h"
 @class FeaturesViewController;
 @class LoadingViewController;
+@class PokemonFamilyViewController;
 
 @interface PokeDataLayer : NSObject
 
 /// Récupère tous les Pokemon depuis le webservice
 + (NSMutableArray<Pokemon*>*) getAllPokemonsWithRootView:(RootViewController*) view andLoadingView:(LoadingViewController*) loadingView;
+
+/// Récupère les ids des evolution précédente et suivante
++ (NSMutableArray<NSNumber*>*) getPokemonFamilyWithPokemonFamilyView:(PokemonFamilyViewController*) view;
 
 /// Récupère tous les Pokemon depuis le webservice avec
 /// la chaine de caractère fournie en paramètre

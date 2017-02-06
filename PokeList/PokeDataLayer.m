@@ -9,6 +9,7 @@
 #import "PokeDataLayer.h"
 #import "FeaturesViewController.h"
 #import "LoadingViewController.h"
+#import "PokemonFamilyViewController.h"
 
 @implementation PokeDataLayer
 
@@ -36,6 +37,30 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
     }];
     [dataTask resume];
     return pokemonsList;
+}
+
++ (NSMutableArray<NSNumber*>*) getPokemonFamilyWithPokemonFamilyView:(PokemonFamilyViewController*) view{
+    __block NSMutableArray<NSNumber*> *pokemonIds = [[NSMutableArray alloc] init];
+    NSURLSession* session = [NSURLSession sharedSession];
+    NSURLRequest* request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%hu", baseApiUrl, @"/pokemonFamily/ids/", view.currentPokemonId]]];
+    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if(!error){
+            NSError* jsonError = nil;
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+            for (id key in dict) {
+                [pokemonIds addObject:key];
+            }
+        }
+        // On quitte le mode asynchrone pour impacter la vue
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [view.mainScrollView setContentSize:CGSizeMake([UIScreen mainScreen].bounds.size.width * [pokemonIds count], [UIScreen mainScreen].bounds.size.width)];
+            for(NSNumber* pokeId in pokemonIds){
+                [view addSubViewToScrollViewWithPokemonId:[pokeId shortValue]];
+            }
+        });
+    }];
+    [dataTask resume];
+    return pokemonIds;
 }
 
 + (NSMutableArray<Pokemon*>*) getAllPokemonsWithRootView:(RootViewController*) view andSearchPattern:(NSString*) pattern{
