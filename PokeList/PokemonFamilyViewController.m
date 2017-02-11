@@ -32,6 +32,11 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    self.navigationController.navigationBar.barTintColor = [Tools UIColorFromRGB:0xFFFFFF];
+    // Couleur de la police du navigation bar
+    self.navigationController.navigationBar.tintColor = [Tools UIColorFromRGB:0xB71C1C];
+    [self.navigationController.navigationBar
+     setTitleTextAttributes:@{NSForegroundColorAttributeName : [Tools UIColorFromRGB:0xB71C1C]}];
     [PokeDataLayer getPokemonFamilyWithPokemonFamilyView:self];
     self.mainScrollView.pagingEnabled = YES;
     

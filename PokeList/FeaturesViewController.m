@@ -83,11 +83,6 @@
     }
 }
 
-- (IBAction)btnEvolClick:(UIButton *)sender {
-    PokemonFamilyViewController *evolView = [[PokemonFamilyViewController alloc] initWithNibName:@"PokemonFamilyViewController" bundle:nil pokemonId:self.currentPokemonId];
-    [self.navigationController pushViewController:evolView animated:YES];
-}
-
 - (CGFloat)getLabelHeight:(UILabel*)label
 {
     CGRect screenRect = [[UIScreen mainScreen] bounds];

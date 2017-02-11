@@ -39,7 +39,7 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
     return pokemonsList;
 }
 
-+ (NSMutableArray<NSNumber*>*) getPokemonFamilyWithPokemonFamilyView:(PokemonFamilyViewController*) view{
++ (NSMutableArray<NSNumber*>*) getPokemonFamilyWithPokemonFamilyView:(PokemonFamilyViewController*) view {
     __block NSMutableArray<NSNumber*> *pokemonIds = [[NSMutableArray alloc] init];
     NSURLSession* session = [NSURLSession sharedSession];
     NSURLRequest* request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%hu", baseApiUrl, @"/pokemonFamily/ids/", view.currentPokemonId]]];
@@ -61,6 +61,9 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
                 frame.origin.x = view.view.frame.size.width * count;
                 featureView.view.frame = frame;
                 [view.featuresViews addObject:featureView.view];
+                if(view.currentPokemonId == [pokeId shortValue]){
+                    [view.mainScrollView setContentOffset:CGPointMake(view.view.frame.size.width * count, 0) animated:NO];
+                }
                 count++;
                 [view addSubViewWithView:featureView.view];
             }

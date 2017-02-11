@@ -11,6 +11,7 @@
 #import "AboutViewController.h"
 #import "FeaturesViewController.h"
 #import "LoadingViewController.h"
+#import "PokemonFamilyViewController.h"
 #import "Tools.h"
 #import "Pokemon.h"
 #import "PokeDataLayer.h"
@@ -73,27 +74,18 @@ static NSString* const kCellId = @"Cell";
 }
 
 - (void) btnAbout_Click:(id) sender{
-#ifndef NDEBUG
-    /* Debug only code */ /* Code compilé uniquement en mode debug ! */
-    //NSLog(@"DEBUG --> About button was pressed");
-#endif
     AboutViewController* aboutView = [[AboutViewController alloc] init];
     [self presentViewController:aboutView animated:YES completion:nil];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-#ifndef NDEBUG
-    /* Debug only code */ /* Code compilé uniquement en mode debug ! */
-    // %lu = unsigned long
-    // NSLog(@"DEBUG --> Pokemon count = %lu", (unsigned long)[self.pokemonList count]);
-#endif
     return [self.pokemonList count];
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger pokeId = [[self.pokemonList objectAtIndex:indexPath.row].number integerValue];
-    FeaturesViewController * featureView  = [[FeaturesViewController alloc] initWithNibName:@"FeaturesViewController" bundle:nil pokemonId:pokeId];
-    [self.navigationController pushViewController:featureView animated:YES];
+    PokemonFamilyViewController *pokemonFamilyView  = [[PokemonFamilyViewController alloc] initWithNibName:@"PokemonFamilyViewController" bundle:nil pokemonId:(pokeId)];
+    [self.navigationController pushViewController:pokemonFamilyView animated:YES];
 }
 
 - (void) reloadTableView{
@@ -109,7 +101,6 @@ static NSString* const kCellId = @"Cell";
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     if(![self.searchBar.text isEqualToString:@""]){
         [self loadPokemonSearchResultIntTableView];
-        // self.pokemonList = [PokeDataLayer getAllPokemonsWithRootView:self andSearchPattern:searchBar.text];
         [self.tableView reloadData];
     }else{
         [self loadPokemonInTableViewWithLoadingView:[[LoadingViewController alloc] init]];
@@ -160,20 +151,15 @@ static NSString* const kCellId = @"Cell";
         cell = [tableView dequeueReusableCellWithIdentifier:kCellId forIndexPath:indexPath];
     }
     Pokemon *currentPokemon = [self.pokemonList objectAtIndex:indexPath.row];
-    // cell.pokemonSprite.image = [UIImage imageNamed:@"Pokeball"];
     
     [PokeDataLayer getPokemonSpriteWithId:(unsigned short)[currentPokemon.number intValue] andCell:cell];
     cell.pokemonName.text = currentPokemon.name;
-    // cell.pokemonType1.textColor = [UIColor whiteColor];
-    // cell.pokemonType1.backgroundColor = [UIColor redColor];
     if([currentPokemon.types count] > 0){
         cell.pokemonType1.text = [currentPokemon.types objectAtIndex:0];
     }else{
         cell.pokemonType1.text = @"---";
     }
     
-    // cell.pokemonType2.textColor = [UIColor whiteColor];
-    // cell.pokemonType2.backgroundColor = [UIColor blueColor];
     if([currentPokemon.types count] > 1){
         cell.pokemonType2.text = [currentPokemon.types objectAtIndex:1];
     }else{
@@ -183,14 +169,5 @@ static NSString* const kCellId = @"Cell";
     return cell;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

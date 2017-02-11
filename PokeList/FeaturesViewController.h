@@ -11,11 +11,14 @@
 #import "FeaturesViewController.h"
 #import "Tools.h"
 
+@class PokemonFamilyViewController;
+
 
 @interface FeaturesViewController : UIViewController{
     @private
     Pokemon *pokemon_;
     unsigned short currentPokemonId_;
+    PokemonFamilyViewController *parentView_;
 }
 
 @property (weak, nonatomic) IBOutlet UIScrollView *featureScrollView;
@@ -34,11 +37,11 @@
 
 @property (strong, nonatomic) Pokemon* pokemon;
 @property (assign, nonatomic) unsigned short currentPokemonId;
+@property (strong, nonatomic) PokemonFamilyViewController* parentView;
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil pokemonId:(unsigned short)pokeId;
-
+/// A Commenter
 - (void) loadPokemonDataWithPokemonId:(unsigned short) pokemonId;
-- (IBAction)btnEvolClick:(UIButton *)sender;
 /// Fonction partage de pokemon
 - (void) sharePokemon:(Pokemon*) pokemon;
 
