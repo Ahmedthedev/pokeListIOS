@@ -60,13 +60,14 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
                 CGRect frame = view.view.frame;
                 frame.origin.x = view.view.frame.size.width * count;
                 featureView.view.frame = frame;
-                [view.featuresViews addObject:featureView.view];
+                [view.featuresViews addObject:featureView];
                 if(view.currentPokemonId == [pokeId shortValue]){
                     [view.mainScrollView setContentOffset:CGPointMake(view.view.frame.size.width * count, 0) animated:NO];
                 }
                 count++;
                 [view addSubViewWithView:featureView.view];
             }
+            view.title = @"Description";
         });
     }];
     [dataTask resume];

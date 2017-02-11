@@ -24,6 +24,7 @@
     if(self != nil){
         self.currentPokemonId = pokeId;
         self.featuresViews = [[NSMutableArray alloc] init];
+        self.edgesForExtendedLayout = UIRectEdgeNone;
     }
     
     return self;
@@ -37,6 +38,9 @@
     self.navigationController.navigationBar.tintColor = [Tools UIColorFromRGB:0xB71C1C];
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [Tools UIColorFromRGB:0xB71C1C]}];
+    UIBarButtonItem* shareBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(sharePokemon:)];
+    shareBtn.tintColor = [Tools UIColorFromRGB:0xB71C1C];
+    self.navigationItem.rightBarButtonItem = shareBtn;
     [PokeDataLayer getPokemonFamilyWithPokemonFamilyView:self];
     self.mainScrollView.pagingEnabled = YES;
     
@@ -61,18 +65,27 @@
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator{
     [self.mainScrollView setContentSize:CGSizeMake(size.width* [self.featuresViews count], 0)];
     int count = 0;
-    for(UIView* featuresView in self.featuresViews){
+    
+    for(FeaturesViewController* featuresView in self.featuresViews){
         if(UIDeviceOrientationIsPortrait([[UIDevice currentDevice] orientation])){
-            CGRect frame = featuresView.frame;
+            CGRect frame = featuresView.view.frame;
             frame.origin.x = size.width * count;
-            featuresView.frame = frame;
+            featuresView.view.frame = frame;
         }else{
-            CGRect frame = featuresView.frame;
+            CGRect frame = featuresView.view.frame;
             frame.origin.x = size.width * count;
-            featuresView.frame = frame;
+            featuresView.view.frame = frame;
         }
         count ++;
     }
+}
+
+- (void) sharePokemon:(Pokemon*) pokemon {
+    UIImage *image = [Tools getUIImageWithView:self.view];
+    NSArray* sharedObjects=[NSArray arrayWithObjects:@"Pokelist", image, nil];
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc]                                                                initWithActivityItems:sharedObjects applicationActivities:nil];
+    activityViewController.popoverPresentationController.sourceView = self.view;
+    [self presentViewController:activityViewController animated:YES completion:nil];
 }
 
 

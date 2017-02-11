@@ -41,14 +41,14 @@
     self.featureScrollView.showsVerticalScrollIndicator = NO;
     
     UIBarButtonItem* shareBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(sharePokemon:)];
-    shareBtn.tintColor = [UIColor blackColor];
+    shareBtn.tintColor = [Tools UIColorFromRGB:0xB71C1C];
     self.navigationItem.rightBarButtonItem = shareBtn;
     [self.view addSubview:self.featureScrollView];
     
     CGSize viewSize = [UIScreen mainScreen].bounds.size;
+    viewSize.height = self.featureView.frame.size.height + self.featureView.frame.origin.y + 10; // Marge de 10 pixel en dessous du feature view
+    viewSize.width = 0;
     
-    viewSize.height += 50 + [self getLabelHeight:self.pokeDescription] * 12;
-    viewSize.width -= 50;
     self.featureScrollView.contentSize = viewSize;
     
     [self loadPokemonDataWithPokemonId:self.currentPokemonId];

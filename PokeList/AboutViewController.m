@@ -29,25 +29,4 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)btnshare:(id)sender {
-
-    
-    UIImage *image = [Tools getUIImageWithView:self.view];
-    
-    NSArray* sharedObjects=[NSArray arrayWithObjects:@"sharecontent",  image, nil];
-    UIActivityViewController *activityViewController = [[UIActivityViewController alloc]                                                                initWithActivityItems:sharedObjects applicationActivities:nil];
-    activityViewController.popoverPresentationController.sourceView = self.view;
-    [self presentViewController:activityViewController animated:YES completion:nil];
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

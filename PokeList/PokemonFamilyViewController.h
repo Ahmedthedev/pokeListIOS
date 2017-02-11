@@ -8,13 +8,14 @@
 
 #import <UIKit/UIKit.h>
 @class FeaturesViewController;
+@class Pokemon;
 
 @interface PokemonFamilyViewController : UIViewController{
-    NSMutableArray<UIView*> *featuresViews_;
+    NSMutableArray<FeaturesViewController*> *featuresViews_;
     unsigned short currentPokemonId_;
 }
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
-@property (retain, nonatomic) NSMutableArray<UIView*> *featuresViews;
+@property (retain, nonatomic) NSMutableArray<FeaturesViewController*> *featuresViews;
 
 @property (assign, nonatomic) unsigned short currentPokemonId;
 
@@ -22,5 +23,8 @@
 
 /// Ajout de sous vue dans la scrollView
 - (void) addSubViewWithView:(UIView*) view;
+
+/// Fonction partage de pokemon
+- (void) sharePokemon:(Pokemon*) pokemon;
 
 @end
