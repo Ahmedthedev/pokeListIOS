@@ -18,7 +18,6 @@
     @private
     Pokemon *pokemon_;
     unsigned short currentPokemonId_;
-    PokemonFamilyViewController *parentView_;
 }
 
 @property (weak, nonatomic) IBOutlet UIScrollView *featureScrollView;
@@ -37,7 +36,6 @@
 
 @property (strong, nonatomic) Pokemon* pokemon;
 @property (assign, nonatomic) unsigned short currentPokemonId;
-@property (strong, nonatomic) PokemonFamilyViewController* parentView;
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil pokemonId:(unsigned short)pokeId;
 /// A Commenter
