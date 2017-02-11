@@ -39,5 +39,7 @@
 
 - (void) loadPokemonDataWithPokemonId:(unsigned short) pokemonId;
 - (IBAction)btnEvolClick:(UIButton *)sender;
+/// Fonction partage de pokemon
+- (void) sharePokemon:(Pokemon*) pokemon;
 
 @end

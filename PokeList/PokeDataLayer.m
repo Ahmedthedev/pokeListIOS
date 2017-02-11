@@ -53,9 +53,16 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
         }
         // On quitte le mode asynchrone pour impacter la vue
         dispatch_async(dispatch_get_main_queue(), ^{
-            [view.mainScrollView setContentSize:CGSizeMake([UIScreen mainScreen].bounds.size.width * [pokemonIds count], [UIScreen mainScreen].bounds.size.width)];
+            [view.mainScrollView setContentSize:CGSizeMake(view.view.frame.size.width * [pokemonIds count], 0)];
+            int count = 0;
             for(NSNumber* pokeId in pokemonIds){
-                // [view addSubViewToScrollViewWithPokemonId:[pokeId shortValue]];
+                FeaturesViewController* featureView = [[FeaturesViewController alloc] initWithNibName:@"FeaturesViewController" bundle:nil pokemonId:[pokeId shortValue]];
+                CGRect frame = view.view.frame;
+                frame.origin.x = view.view.frame.size.width * count;
+                featureView.view.frame = frame;
+                [view.featuresViews addObject:featureView.view];
+                count++;
+                [view addSubViewWithView:featureView.view];
             }
         });
     }];
@@ -143,11 +150,6 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
     cell.pokemonSprite.image = [UIImage imageNamed:@"Pokeball"];
     
     NSString *spriteUrl = [NSString stringWithFormat:@"%@/sprites/%hu.png", baseImageUrl, pokemonId];
-#ifndef NDEBUG
-    /* Debug only code */ /* Code compilé uniquement en mode debug ! */
-    //NSLog(@"DEBUG --> Sprite URL --> %hu", pokemonId);
-    //NSLog(@"DEBUG --> Sprite URL --> %@", spriteUrl);
-#endif
     
     NSURLSession* session = [NSURLSession sharedSession];
     NSURLRequest* request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:spriteUrl]];
@@ -166,11 +168,6 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
 + (void) getPokemonImageWithId:(unsigned short) pokemonId andImageView:(UIImageView*) imageView{
     imageView.image = nil;
     NSString *imageUrl = [NSString stringWithFormat:@"%@/%hu.png", baseImageUrl, pokemonId];
-#ifndef NDEBUG
-    /* Debug only code */ /* Code compilé uniquement en mode debug ! */
-    // NSLog(@"DEBUG --> Image URL --> %hu", pokemonId);
-   // NSLog(@"DEBUG --> Image URL --> %@", imageUrl);
-#endif
     
     NSURLSession* session = [NSURLSession sharedSession];
     NSURLRequest* request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:imageUrl]];

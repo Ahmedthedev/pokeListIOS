@@ -47,9 +47,6 @@
     
     CGSize viewSize = [UIScreen mainScreen].bounds.size;
     
-    
-    //NSLog("%f",viewSize);
-    
     viewSize.height += 50 + [self getLabelHeight:self.pokeDescription] * 12;
     viewSize.width -= 50;
     self.featureScrollView.contentSize = viewSize;
@@ -57,9 +54,13 @@
     [self loadPokemonDataWithPokemonId:self.currentPokemonId];
 }
 
-// A faire
 - (void) sharePokemon:(Pokemon*) pokemon {
-    // [self presentViewController:p animated:YES completion:nil];
+    UIImage *image = [Tools getUIImageWithView:self.view];
+    
+    NSArray* sharedObjects=[NSArray arrayWithObjects:@"sharecontent",  image, nil];
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc]                                                                initWithActivityItems:sharedObjects applicationActivities:nil];
+    activityViewController.popoverPresentationController.sourceView = self.view;
+    [self presentViewController:activityViewController animated:YES completion:nil];
 }
 
 
