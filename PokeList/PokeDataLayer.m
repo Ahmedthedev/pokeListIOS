@@ -51,22 +51,26 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
                 [pokemonIds addObject:key];
             }
         }
+        [view.mainScrollView setContentSize:CGSizeMake(view.view.frame.size.width * [pokemonIds count], 0)];
+        int count = 0;
+        for(NSNumber* pokeId in pokemonIds){
+            FeaturesViewController* featureView = [[FeaturesViewController alloc] initWithNibName:@"FeaturesViewController" bundle:nil pokemonId:[pokeId shortValue]];
+            CGRect frame = view.view.frame;
+            frame.origin.x = view.view.frame.size.width * count;
+            featureView.view.frame = frame;
+            [view.featuresViews addObject:featureView];
+            if(view.currentPokemonId == [pokeId shortValue]){
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [view.mainScrollView setContentOffset:CGPointMake(view.view.frame.size.width * count, 0) animated:NO];
+                });
+            }
+            count++;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [view addSubViewWithView:featureView.view];
+            });
+        }
         // On quitte le mode asynchrone pour impacter la vue
         dispatch_async(dispatch_get_main_queue(), ^{
-            [view.mainScrollView setContentSize:CGSizeMake(view.view.frame.size.width * [pokemonIds count], 0)];
-            int count = 0;
-            for(NSNumber* pokeId in pokemonIds){
-                FeaturesViewController* featureView = [[FeaturesViewController alloc] initWithNibName:@"FeaturesViewController" bundle:nil pokemonId:[pokeId shortValue]];
-                CGRect frame = view.view.frame;
-                frame.origin.x = view.view.frame.size.width * count;
-                featureView.view.frame = frame;
-                [view.featuresViews addObject:featureView];
-                if(view.currentPokemonId == [pokeId shortValue]){
-                    [view.mainScrollView setContentOffset:CGPointMake(view.view.frame.size.width * count, 0) animated:NO];
-                }
-                count++;
-                [view addSubViewWithView:featureView.view];
-            }
             view.title = @"Description";
         });
     }];
