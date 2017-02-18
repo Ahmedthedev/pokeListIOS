@@ -119,7 +119,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="0.94734589041095896" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" white="1" alpha="0.84917778696268309" colorSpace="calibratedWhite"/>
                         </view>
                     </subviews>
                 </scrollView>

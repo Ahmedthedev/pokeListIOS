@@ -27,6 +27,9 @@
     if(self != nil){
         self.currentPokemonId = pokeId;
         self.featuresViews = [[NSMutableArray alloc] init];
+        // Règle le soucis d'affichage (Retangle gris aléatoire
+        // au dessus de la scrollview
+        self.automaticallyAdjustsScrollViewInsets = NO;
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
     

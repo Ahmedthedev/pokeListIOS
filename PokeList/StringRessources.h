@@ -10,9 +10,11 @@
 
 @interface StringRessources : NSObject
 
-/// Message d'erreur, problème de connexion
+/// Retourne le Message d'erreur, problème de connexion
+/// en fonction de la langue passer en paramètre
 + (NSString*) getNoInternetConnectionMessageWithLocaleString:(NSString*) locale;
-
+/// Retourne le Message d'erreur, Réesayer
+/// en fonction de la langue passer en paramètre
 + (NSString*) getTryAgainMessage:(NSString*) locale;
 
 + (NSString*) getLoadingMessage:(NSString*) locale;

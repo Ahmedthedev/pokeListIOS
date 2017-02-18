@@ -46,7 +46,7 @@
 
 /// Retourne la langue courrante du téléphone
 + (NSString*) getLocaleLanguage{
-    return [[NSLocale preferredLanguages] objectAtIndex:0];
+    return [[[NSLocale preferredLanguages] objectAtIndex:0] substringToIndex:2];
 }
 
 @end
