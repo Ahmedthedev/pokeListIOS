@@ -23,25 +23,16 @@
 + (NSMutableArray<NSNumber*>*) getPokemonFamilyWithPokemonFamilyView:(PokemonFamilyViewController*) view;
 
 /// Récupère tous les Pokemon depuis le webservice avec
-/// la chaine de caractère fournie en paramètre
+/// la chaine de caractère fournie en paramètre (recherche)
 + (NSMutableArray<Pokemon*>*) getAllPokemonsWithRootView:(RootViewController*) view  andSearchPattern:(NSString*) pattern;
 
 /// Récupère un Pokemon depuis le webservice avec son id
-+ (Pokemon*) getPokemonWithId:(unsigned short) pokemonId;
-
-/// Récupère un Pokemon depuis le webservice avec son id
 + (void) getPokemonWithId:(unsigned short) pokemonId andFeatureView:(FeaturesViewController*) featureView;
-
-/// Récupère tous les types existant de pokemon ---> NOT IMPLEMENTED
-+ (NSMutableArray<NSString*>*) getAllPokemonTypes;
 
 /// Récupère le sprite du pokemon depuis le serveur avec son id
 + (void) getPokemonSpriteWithId:(unsigned short) pokemonId andCell:(PokemonTableViewCell*) cell;
 
 /// Récupère l'image du pokemon depuis le serveur avec son id
 + (void) getPokemonImageWithId:(unsigned short) pokemonId andImageView:(UIImageView*) imageView;
-
-/// Récupère la liste des nom de pokemon commmençant par string passer en paramètre ---> NOT IMPLEMENTED
-+ (NSMutableArray<NSString*>*) getPokemonNamesWithString:(NSString*) searchPattern;
 
 @end

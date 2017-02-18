@@ -27,6 +27,7 @@
 @synthesize maxHP = maxHP_;
 @synthesize maxCP = maxCP_;
 
+/// Constructeur prenant en paramètre, un dictionnaire
 - (instancetype) initWithNSDictionnary:(NSDictionary*)dict{
     self = [super init];
     if(self){
@@ -41,7 +42,6 @@
         
         self.number = (NSString*)[dict objectForKey:@"number"];
         self.name = (NSString*)[dict objectForKey:@"name"];
-        //self.classification = (NSString*)[dict objectForKey:@"classification"];
         self.classification = (NSString*)[dict objectForKey:@"classification"];
         tmp = [dict objectForKey:@"types"];
         if(![tmp isEqual:[NSNull null]]){

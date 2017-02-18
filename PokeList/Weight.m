@@ -13,6 +13,7 @@
 @synthesize minimum = minimum_;
 @synthesize maximum = maximum_;
 
+/// Constructeur prenant en paramètre, un dictionnaire
 - (instancetype) initWithNSDictionnary:(NSDictionary*) dict{
     self = [super init];
     if(self){

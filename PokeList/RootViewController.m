@@ -55,6 +55,7 @@ static NSString* const kCellId = @"Cell";
 }
 
 - (void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     // Changement de couleur de la barre de navigation
     self.navigationController.navigationBar.barTintColor = [Tools UIColorFromRGB:0xB71C1C];
     // Changement de couleur de la police de la barre de navigation

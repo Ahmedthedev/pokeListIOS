@@ -13,6 +13,7 @@
 @synthesize amount = amount_;
 @synthesize name = name_;
 
+/// Constructeur prenant en paramètre, un dictionnaire
 - (instancetype) initWithNSDictionnary:(NSDictionary*) dict{
     self = [super init];
     if(self){

@@ -17,6 +17,7 @@
 const NSString *baseApiUrl = @"http://pokelist.azurewebsites.net/api";
 const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokelist/assets";
 
+/// Récupère tous les Pokemon depuis le webservice
 + (NSMutableArray<Pokemon*>*) getAllPokemonsWithRootView:(RootViewController*) view andLoadingView:(LoadingViewController*) loadingView{
     __block NSMutableArray<Pokemon*> *pokemonsList = [[NSMutableArray alloc] init];
     NSURLSession* session = [NSURLSession sharedSession];
@@ -39,6 +40,7 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
     return pokemonsList;
 }
 
+/// Récupère les ids des evolution précédente et suivante
 + (NSMutableArray<NSNumber*>*) getPokemonFamilyWithPokemonFamilyView:(PokemonFamilyViewController*) view {
     __block NSMutableArray<NSNumber*> *pokemonIds = [[NSMutableArray alloc] init];
     NSURLSession* session = [NSURLSession sharedSession];
@@ -57,7 +59,9 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
             FeaturesViewController* featureView = [[FeaturesViewController alloc] initWithNibName:@"FeaturesViewController" bundle:nil pokemonId:[pokeId shortValue]];
             CGRect frame = view.view.frame;
             frame.origin.x = view.view.frame.size.width * count;
-            featureView.view.frame = frame;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                featureView.view.frame = frame;
+            });
             [view.featuresViews addObject:featureView];
             if(view.currentPokemonId == [pokeId shortValue]){
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -78,6 +82,8 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
     return pokemonIds;
 }
 
+/// Récupère tous les Pokemon depuis le webservice avec
+/// la chaine de caractère fournie en paramètre (recherche)
 + (NSMutableArray<Pokemon*>*) getAllPokemonsWithRootView:(RootViewController*) view andSearchPattern:(NSString*) pattern{
     __block NSMutableArray<Pokemon*> *pokemonsList = [[NSMutableArray alloc] init];
     NSURLSession* session = [NSURLSession sharedSession];
@@ -99,21 +105,7 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
     return pokemonsList;
 }
 
-+ (Pokemon*) getPokemonWithId:(unsigned short) pokemonId{
-    __block Pokemon *pokemon = nil;
-    NSURLSession* session = [NSURLSession sharedSession];
-    NSURLRequest* request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%hu", baseApiUrl, @"/pokemon/", pokemonId]]];
-    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        if(!error){
-            NSError* jsonError = nil;
-            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
-            pokemon = [[Pokemon alloc] initWithNSDictionnary:dict];
-        }
-    }];
-    [dataTask resume];
-    return pokemon;
-}
-
+/// Récupère un Pokemon depuis le webservice avec son id
 + (void) getPokemonWithId:(unsigned short) pokemonId andFeatureView:(FeaturesViewController*) featureView {
     __block Pokemon *pokemon = nil;
     NSURLSession* session = [NSURLSession sharedSession];
@@ -149,11 +141,7 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
     [dataTask resume];
 }
 
-+ (NSMutableArray<NSString*>*) getAllPokemonTypes{
-    // NOT IMPLEMENTED -----
-    return nil;
-}
-
+/// Récupère le sprite du pokemon depuis le serveur avec son id
 + (void) getPokemonSpriteWithId:(unsigned short) pokemonId andCell:(PokemonTableViewCell*) cell{
     cell.pokemonSprite.image = [UIImage imageNamed:@"Pokeball"];
     
@@ -173,6 +161,7 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
     [dataTask resume];
 }
 
+/// Récupère l'image du pokemon depuis le serveur avec son id
 + (void) getPokemonImageWithId:(unsigned short) pokemonId andImageView:(UIImageView*) imageView{
     imageView.image = nil;
     NSString *imageUrl = [NSString stringWithFormat:@"%@/%hu.png", baseImageUrl, pokemonId];
@@ -189,11 +178,6 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
         }
     }];
     [dataTask resume];
-}
-
-+ (NSMutableArray<NSString*>*) getPokemonNamesWithString:(NSString*) searchPattern{
-    // NOT IMPLEMENTED -------
-    return nil;
 }
 
 @end

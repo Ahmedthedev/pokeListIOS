@@ -14,6 +14,7 @@
 @synthesize type = type_;
 @synthesize damage = damage_;
 
+/// Constructeur prenant en paramètre, un dictionnaire
 - (instancetype) initWithNSDictionnary:(NSDictionary*) dict{
     self = [super init];
     if(self){
