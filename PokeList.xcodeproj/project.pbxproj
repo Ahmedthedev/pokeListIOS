@@ -100,6 +100,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0509AD2B1E58EC5E0085DF6C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				055DA3951E3AADD500142669 /* LoadingViewController.h */,
+				055DA3961E3AADD500142669 /* LoadingViewController.m */,
+				055DA3971E3AADD500142669 /* LoadingViewController.xib */,
+				055AFF571E2AB2E70080C597 /* RootViewController.h */,
+				055AFF581E2AB2E70080C597 /* RootViewController.m */,
+				055AFF591E2AB2E70080C597 /* RootViewController.xib */,
+				052CA88E1E36798300D8CB76 /* PokemonTableViewCell.h */,
+				052CA88F1E36798300D8CB76 /* PokemonTableViewCell.m */,
+				052CA8901E36798300D8CB76 /* PokemonTableViewCell.xib */,
+				037498811E336F2D00836F9C /* AboutViewController.h */,
+				037498821E336F2D00836F9C /* AboutViewController.m */,
+				037498831E336F2D00836F9C /* AboutViewController.xib */,
+				184EC64D1E3370F0005D4D5F /* FeaturesViewController.h */,
+				184EC64E1E3370F0005D4D5F /* FeaturesViewController.m */,
+				184EC64F1E3370F0005D4D5F /* FeaturesViewController.xib */,
+				058192F61E47A0640045BE88 /* PokemonFamilyViewController.h */,
+				058192F71E47A0640045BE88 /* PokemonFamilyViewController.m */,
+				058192F81E47A0640045BE88 /* PokemonFamilyViewController.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		051439B81E2C1631008E91CD /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,31 +172,14 @@
 				055AFF431E2AB1620080C597 /* AppDelegate.h */,
 				055AFF441E2AB1620080C597 /* AppDelegate.m */,
 				055AFF4C1E2AB1620080C597 /* Assets.xcassets */,
-				055DA3951E3AADD500142669 /* LoadingViewController.h */,
-				055DA3961E3AADD500142669 /* LoadingViewController.m */,
-				055DA3971E3AADD500142669 /* LoadingViewController.xib */,
-				055AFF571E2AB2E70080C597 /* RootViewController.h */,
-				055AFF581E2AB2E70080C597 /* RootViewController.m */,
-				055AFF591E2AB2E70080C597 /* RootViewController.xib */,
-				052CA88E1E36798300D8CB76 /* PokemonTableViewCell.h */,
-				052CA88F1E36798300D8CB76 /* PokemonTableViewCell.m */,
-				052CA8901E36798300D8CB76 /* PokemonTableViewCell.xib */,
-				037498811E336F2D00836F9C /* AboutViewController.h */,
-				037498821E336F2D00836F9C /* AboutViewController.m */,
-				037498831E336F2D00836F9C /* AboutViewController.xib */,
-				184EC64D1E3370F0005D4D5F /* FeaturesViewController.h */,
-				184EC64E1E3370F0005D4D5F /* FeaturesViewController.m */,
-				184EC64F1E3370F0005D4D5F /* FeaturesViewController.xib */,
-				058192F61E47A0640045BE88 /* PokemonFamilyViewController.h */,
-				058192F71E47A0640045BE88 /* PokemonFamilyViewController.m */,
-				058192F81E47A0640045BE88 /* PokemonFamilyViewController.xib */,
+				0509AD2B1E58EC5E0085DF6C /* Views */,
+				051439B81E2C1631008E91CD /* Models */,
 				051424A91E589B8D0082B833 /* StringRessources.h */,
 				051424AA1E589B8D0082B833 /* StringRessources.m */,
 				052CA8931E36B61400D8CB76 /* Tools.h */,
 				052CA8941E36B61400D8CB76 /* Tools.m */,
 				056DA0CF1E3CBA2F00A0CC17 /* Reachability.h */,
 				056DA0D01E3CBA2F00A0CC17 /* Reachability.m */,
-				051439B81E2C1631008E91CD /* Models */,
 				055AFF4E1E2AB1620080C597 /* LaunchScreen.storyboard */,
 				055AFF511E2AB1620080C597 /* Info.plist */,
 				055AFF401E2AB1620080C597 /* Supporting Files */,

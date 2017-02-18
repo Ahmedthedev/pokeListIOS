@@ -13,14 +13,21 @@
 /// Retourne le Message d'erreur, problème de connexion
 /// en fonction de la langue passer en paramètre
 + (NSString*) getNoInternetConnectionMessageWithLocaleString:(NSString*) locale;
-/// Retourne le Message d'erreur, Réesayer
+
+/// Retourne le string, Réesayer
 /// en fonction de la langue passer en paramètre
 + (NSString*) getTryAgainMessage:(NSString*) locale;
 
+/// Retourne le string, Chargement
+/// en fonction de la langue passer en paramètre
 + (NSString*) getLoadingMessage:(NSString*) locale;
 
+/// Retourne le string, Poids
+/// en fonction de la langue passer en paramètre
 + (NSString*) getWeightLabel:(NSString*) locale;
 
+/// Retourne le string, Taille
+/// en fonction de la langue passer en paramètre
 + (NSString*) getHeightLabel:(NSString*) locale;
 
 @end

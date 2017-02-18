@@ -10,7 +10,8 @@
 
 @implementation StringRessources
 
-/// Message d'erreur, problème de connexion
+/// Retourne le Message d'erreur, problème de connexion
+/// en fonction de la langue passer en paramètre
 + (NSString*) getNoInternetConnectionMessageWithLocaleString:(NSString*) locale{
     if([locale isEqualToString:@"en"]){
         return @"Your phone must be connected to internet to use this app.\n Please check your connection and try again.";
@@ -21,6 +22,8 @@
     return @"Your phone must be connected to internet to use this app.\n Please check your connection and try again.";
 }
 
+/// Retourne le string, Réesayer
+/// en fonction de la langue passer en paramètre
 + (NSString*) getTryAgainMessage:(NSString*) locale{
     if([locale isEqualToString:@"en"]){
         return @"Try again";
@@ -31,6 +34,8 @@
     return @"Try again";;
 }
 
+/// Retourne le string, Chargement
+/// en fonction de la langue passer en paramètre
 + (NSString*) getLoadingMessage:(NSString*) locale{
     if([locale isEqualToString:@"en"]){
         return @"Loading";
@@ -41,6 +46,8 @@
     return @"Loading";
 }
 
+/// Retourne le string, Poids
+/// en fonction de la langue passer en paramètre
 + (NSString*) getWeightLabel:(NSString*) locale{
     if([locale isEqualToString:@"en"]){
         return @"Weight";
@@ -51,6 +58,8 @@
     return @"Weight";
 }
 
+/// Retourne le string, Taille
+/// en fonction de la langue passer en paramètre
 + (NSString*) getHeightLabel:(NSString*) locale{
     if([locale isEqualToString:@"en"]){
         return @"Height";
