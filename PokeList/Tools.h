@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+/// Cette classe contient des fonction annexe utiles
 @interface Tools : NSObject
 
 /// Convertion du format HEX (0xFFFFFF) en UIColor

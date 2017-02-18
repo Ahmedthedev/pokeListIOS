@@ -12,6 +12,7 @@
 #import "PokemonFamilyViewController.h"
 #import "StringRessources.h"
 
+/// Cette classe permet de récupèrer les infos depuis le WebService
 @implementation PokeDataLayer
 
 /// Url de base du webservice

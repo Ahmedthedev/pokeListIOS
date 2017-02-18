@@ -8,6 +8,8 @@
 
 #import "StringRessources.h"
 
+/// Cette classe permet de récupere les message ou des mots
+/// traduit en fonction de la langue passer en paramètre
 @implementation StringRessources
 
 /// Retourne le Message d'erreur, problème de connexion

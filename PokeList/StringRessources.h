@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+/// Cette classe permet de récupere les message ou des mots
+/// traduit en fonction de la langue passer en paramètre
 @interface StringRessources : NSObject
 
 /// Retourne le Message d'erreur, problème de connexion

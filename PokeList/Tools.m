@@ -11,6 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "AboutViewController.h"
 
+/// Cette classe contient des fonction annexe utiles
 @implementation Tools
 
 /// Convertion du format HEX (0xFFFFFF) en UIColor
@@ -36,11 +37,8 @@
 + (UIImage*) getUIImageWithView:(UIView*) view{
     UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 0.0);
     [view.layer renderInContext:UIGraphicsGetCurrentContext()];
-    
     UIImage * img = UIGraphicsGetImageFromCurrentImageContext();
-    
     UIGraphicsEndImageContext();
-    
     return img;
 }
 

@@ -14,6 +14,7 @@
 @class LoadingViewController;
 @class PokemonFamilyViewController;
 
+/// Cette classe permet de récupèrer les infos depuis le WebService
 @interface PokeDataLayer : NSObject
 
 /// Récupère tous les Pokemon depuis le webservice
