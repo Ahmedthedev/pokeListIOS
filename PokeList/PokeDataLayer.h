@@ -29,10 +29,10 @@
 /// Récupère un Pokemon depuis le webservice avec son id
 + (void) getPokemonWithId:(unsigned short) pokemonId andFeatureView:(FeaturesViewController*) featureView;
 
-/// Récupère le sprite du pokemon depuis le serveur avec son id
+/// Récupère le sprite du pokemon depuis le serveur avec son id (RootView)
 + (void) getPokemonSpriteWithId:(unsigned short) pokemonId andCell:(PokemonTableViewCell*) cell;
 
-/// Récupère l'image du pokemon depuis le serveur avec son id
+/// Récupère l'image du pokemon depuis le serveur avec son id (FeaturesView)
 + (void) getPokemonImageWithId:(unsigned short) pokemonId andImageView:(UIImageView*) imageView;
 
 @end

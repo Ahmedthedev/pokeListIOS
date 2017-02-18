@@ -39,10 +39,6 @@
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [Tools UIColorFromRGB:0xB71C1C]}];
     self.featureScrollView.showsVerticalScrollIndicator = NO;
-    
-    UIBarButtonItem* shareBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(sharePokemon:)];
-    shareBtn.tintColor = [Tools UIColorFromRGB:0xB71C1C];
-    self.navigationItem.rightBarButtonItem = shareBtn;
     [self.view addSubview:self.featureScrollView];
     
     CGSize viewSize = [UIScreen mainScreen].bounds.size;
@@ -54,51 +50,20 @@
     [self loadPokemonDataWithPokemonId:self.currentPokemonId];
 }
 
-- (void) sharePokemon:(Pokemon*) pokemon {
-    UIImage *image = [Tools getUIImageWithView:self.view];
-    
-    NSArray* sharedObjects=[NSArray arrayWithObjects:@"sharecontent",  image, nil];
-    UIActivityViewController *activityViewController = [[UIActivityViewController alloc]                                                                initWithActivityItems:sharedObjects applicationActivities:nil];
-    activityViewController.popoverPresentationController.sourceView = self.view;
-    [self presentViewController:activityViewController animated:YES completion:nil];
-}
 
-
-
+/// Charge les données avec l'id du pokemon
 - (void) loadPokemonDataWithPokemonId:(unsigned short) pokemonId{
     if([Tools isInternetConnected]) {
         [PokeDataLayer getPokemonWithId:pokemonId andFeatureView:self];
     }else{
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Information" message:@"Your phone must be connected to internet to use this app.\n Please check your connection and try again." preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *quitAction = [UIAlertAction actionWithTitle:@"Exit" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * action) {
-            exit(0);
-        }];
         
         UIAlertAction * refreshAction = [UIAlertAction actionWithTitle:@"Try again" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
             [self loadPokemonDataWithPokemonId:pokemonId];
         }];
         [alertController addAction:refreshAction];
-        [alertController addAction:quitAction];
         [self presentViewController:alertController animated:YES completion:nil];
     }
-}
-
-- (CGFloat)getLabelHeight:(UILabel*)label
-{
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    CGFloat screenWidth = screenRect.size.width;
-    CGSize constraint = CGSizeMake(screenWidth, CGFLOAT_MAX);
-    CGSize size;
-    
-    NSStringDrawingContext *context = [[NSStringDrawingContext alloc] init];
-    CGSize boundingBox = [label.text boundingRectWithSize:constraint
-                                                  options:NSStringDrawingUsesLineFragmentOrigin
-                                               attributes:@{NSFontAttributeName:label.font}
-                                                  context:context].size;
-    
-    size = CGSizeMake(ceil(boundingBox.width), ceil(boundingBox.height));
-    
-    return size.height;
 }
 
 - (void)didReceiveMemoryWarning {

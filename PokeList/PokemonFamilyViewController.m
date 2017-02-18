@@ -48,16 +48,6 @@
     
     [super viewDidLoad];
     self.mainScrollView.pagingEnabled = YES;
-    
-    // -------------------------------------------------
-    /* Duplication d'instance
-    // -------------------------------------------------
-    NSData *archivedData = [NSKeyedArchiver archivedDataWithRootObject: self.bugView];
-    
-    UIView * newView = [NSKeyedUnarchiver unarchiveObjectWithData: archivedData];
-    
-    frame.origin.x = [UIScreen mainScreen].bounds.size.width * 2;
-    newView.frame = frame;*/
 }
 
 /// Ajout de sous vue dans la scrollView
@@ -72,19 +62,14 @@
     int count = 0;
     
     for(FeaturesViewController* featuresView in self.featuresViews){
-        if(UIDeviceOrientationIsPortrait([[UIDevice currentDevice] orientation])){
-            CGRect frame = featuresView.view.frame;
-            frame.origin.x = size.width * count;
-            featuresView.view.frame = frame;
-        }else{
-            CGRect frame = featuresView.view.frame;
-            frame.origin.x = size.width * count;
-            featuresView.view.frame = frame;
-        }
+        CGRect frame = featuresView.view.frame;
+        frame.origin.x = size.width * count;
+        featuresView.view.frame = frame;
         count ++;
     }
 }
 
+/// Fonction partage de pokemon
 - (void) sharePokemon:(Pokemon*) pokemon {
     UIImage *image = [Tools getUIImageWithView:self.view];
     NSArray* sharedObjects=[NSArray arrayWithObjects:@"Pokelist", image, nil];

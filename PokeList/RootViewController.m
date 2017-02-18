@@ -89,6 +89,7 @@ static NSString* const kCellId = @"Cell";
     [self.navigationController pushViewController:pokemonFamilyView animated:YES];
 }
 
+/// Recharge la table view
 - (void) reloadTableView{
     [self.tableView reloadData];
 }
@@ -115,6 +116,8 @@ static NSString* const kCellId = @"Cell";
     [self loadPokemonInTableViewWithLoadingView:[[LoadingViewController alloc] init]];
 }
 
+/// Verifie l'existance d'une connection internet
+/// et charge les éléments dans la tableview
 - (void) loadPokemonInTableViewWithLoadingView:(LoadingViewController*) loadingView{
     if([Tools isInternetConnected]){
         [self.pokemonList removeAllObjects];
@@ -130,6 +133,9 @@ static NSString* const kCellId = @"Cell";
     }
 }
 
+/// Verifie l'existance d'une connection internet
+/// et charge les éléments résultant d'une recherche
+/// dans la tableview
 - (void) loadPokemonSearchResultIntTableView{
     if([Tools isInternetConnected]){
         [self.pokemonList removeAllObjects];

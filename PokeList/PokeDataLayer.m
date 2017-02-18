@@ -141,7 +141,7 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
     [dataTask resume];
 }
 
-/// Récupère le sprite du pokemon depuis le serveur avec son id
+/// Récupère le sprite du pokemon depuis le serveur avec son id (RootView)
 + (void) getPokemonSpriteWithId:(unsigned short) pokemonId andCell:(PokemonTableViewCell*) cell{
     cell.pokemonSprite.image = [UIImage imageNamed:@"Pokeball"];
     
@@ -161,7 +161,7 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
     [dataTask resume];
 }
 
-/// Récupère l'image du pokemon depuis le serveur avec son id
+/// Récupère l'image du pokemon depuis le serveur avec son id (FeaturesView)
 + (void) getPokemonImageWithId:(unsigned short) pokemonId andImageView:(UIImageView*) imageView{
     imageView.image = nil;
     NSString *imageUrl = [NSString stringWithFormat:@"%@/%hu.png", baseImageUrl, pokemonId];

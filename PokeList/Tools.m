@@ -13,6 +13,7 @@
 
 @implementation Tools
 
+/// Convertion du format HEX (0xFFFFFF) en UIColor
 + (UIColor*) UIColorFromRGB:(unsigned) hexValue{
     return [UIColor colorWithRed:((float)((hexValue & 0xFF0000) >> 16))/255.0 \
                            green:((float)((hexValue & 0x00FF00) >>  8))/255.0 \
@@ -20,6 +21,7 @@
                            alpha:1.0];
 }
 
+/// Retourne YES si l'iphone est connecté a internet
 + (bool) isInternetConnected{
     Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
     NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
@@ -29,6 +31,8 @@
     return YES;
 }
 
+
+/// Retourne une capture d'ecran pour la fonction share
 + (UIImage*) getUIImageWithView:(UIView*) view{
     UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 0.0);
     [view.layer renderInContext:UIGraphicsGetCurrentContext()];

@@ -38,9 +38,7 @@
 @property (assign, nonatomic) unsigned short currentPokemonId;
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil pokemonId:(unsigned short)pokeId;
-/// A Commenter
+/// Charge les données avec l'id du pokemon
 - (void) loadPokemonDataWithPokemonId:(unsigned short) pokemonId;
-/// Fonction partage de pokemon
-- (void) sharePokemon:(Pokemon*) pokemon;
 
 @end

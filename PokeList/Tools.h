@@ -10,12 +10,13 @@
 
 @interface Tools : NSObject
 
-/// Convertis le format HEX (0xFFFFFF) en UIColor
+/// Convertion du format HEX (0xFFFFFF) en UIColor
 + (UIColor*) UIColorFromRGB:(unsigned) hexValue;
 
 /// Retourne YES si l'iphone est connecté a internet
 + (bool) isInternetConnected;
 
+/// Retourne une capture d'ecran pour la fonction share
 + (UIImage*) getUIImageWithView:(UIView*) view;
 
 @end
