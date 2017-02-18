@@ -30,4 +30,8 @@
 /// en fonction de la langue passer en paramètre
 + (NSString*) getHeightLabel:(NSString*) locale;
 
+/// Retourne le type anglais correspondant au type
+/// passer en paramètre
++ (NSString*) getEnTypesForString:(NSString*) typeStr;
+
 @end

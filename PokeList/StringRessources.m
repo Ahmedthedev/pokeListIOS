@@ -70,4 +70,43 @@
     return @"Height";
 }
 
+/// Retourne le type anglais correspondant au type
+/// passer en paramètre
++ (NSString*) getEnTypesForString:(NSString*) typeStr{
+    if([typeStr isEqualToString:@"Bug"] || [typeStr isEqualToString:@"Insect"]){
+        return @"Bug";
+    } else if([typeStr isEqualToString:@"Dragon"]){
+        return @"Dragon";
+    } else if([typeStr isEqualToString:@"Electric"] || [typeStr isEqualToString:@"Electr"]){
+        return @"Electric";
+    } else if([typeStr isEqualToString:@"Fairy"] || [typeStr isEqualToString:@"Fee"]){
+        return @"Fairy";
+    } else if([typeStr isEqualToString:@"Fighting"] || [typeStr isEqualToString:@"Combat"]){
+        return @"Fighting";
+    } else if([typeStr isEqualToString:@"Fire"] || [typeStr isEqualToString:@"Feu"]){
+        return @"Fire";
+    } else if([typeStr isEqualToString:@"Fly"] || [typeStr isEqualToString:@"Vol"]){
+        return @"Fly";
+    } else if([typeStr isEqualToString:@"Ghost"] || [typeStr isEqualToString:@"Spectr"]){
+        return @"Ghost";
+    } else if([typeStr isEqualToString:@"Grass"] || [typeStr isEqualToString:@"Plante"]){
+        return @"Grass";
+    } else if([typeStr isEqualToString:@"Ground"] || [typeStr isEqualToString:@"Sol"]){
+        return @"Ground";
+    } else if([typeStr isEqualToString:@"Ice"] || [typeStr isEqualToString:@"Glace"]){
+        return @"Ice";
+    } else if([typeStr isEqualToString:@"Normal"]){
+        return @"Normal";
+    } else if([typeStr isEqualToString:@"Poison"]){
+        return @"Poison";
+    } else if([typeStr isEqualToString:@"Psychic"] || [typeStr isEqualToString:@"Psy"]){
+        return @"Psychic";
+    } else if([typeStr isEqualToString:@"Rock"] || [typeStr isEqualToString:@"Roche"]){
+        return @"Rock";
+    } else if([typeStr isEqualToString:@"Water"] || [typeStr isEqualToString:@"Eau"]){
+        return @"Water";
+    }
+    return @"";
+}
+
 @end

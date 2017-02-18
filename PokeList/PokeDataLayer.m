@@ -10,6 +10,7 @@
 #import "FeaturesViewController.h"
 #import "LoadingViewController.h"
 #import "PokemonFamilyViewController.h"
+#import "StringRessources.h"
 
 @implementation PokeDataLayer
 
@@ -123,7 +124,7 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
                 featureView.weight.text = pokemon.weight.minimum;
                 if([pokemon.types count] > 0){
                     featureView.firstType.text = [pokemon.types objectAtIndex:0];
-                    featureView.backgroundImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"BG%@.png", [pokemon.types objectAtIndex:0]]];
+                    featureView.backgroundImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"BG%@.png", [StringRessources getEnTypesForString:[pokemon.types objectAtIndex:0]]]];
                 }else{
                     featureView.backgroundImage.image = [[UIImage alloc] init];
                     featureView.firstType.text = @"---";
