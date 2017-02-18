@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		037498841E336F2D00836F9C /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 037498821E336F2D00836F9C /* AboutViewController.m */; };
 		037498851E336F2D00836F9C /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 037498831E336F2D00836F9C /* AboutViewController.xib */; };
+		051424AB1E589B8D0082B833 /* StringRessources.m in Sources */ = {isa = PBXBuildFile; fileRef = 051424AA1E589B8D0082B833 /* StringRessources.m */; };
 		051439A51E2C1555008E91CD /* FastAttack.m in Sources */ = {isa = PBXBuildFile; fileRef = 051439A41E2C1555008E91CD /* FastAttack.m */; };
 		051439A81E2C156A008E91CD /* SpecialAttack.m in Sources */ = {isa = PBXBuildFile; fileRef = 051439A71E2C156A008E91CD /* SpecialAttack.m */; };
 		051439AB1E2C1581008E91CD /* Weight.m in Sources */ = {isa = PBXBuildFile; fileRef = 051439AA1E2C1581008E91CD /* Weight.m */; };
@@ -40,6 +41,8 @@
 		037498811E336F2D00836F9C /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		037498821E336F2D00836F9C /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		037498831E336F2D00836F9C /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
+		051424A91E589B8D0082B833 /* StringRessources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringRessources.h; sourceTree = "<group>"; };
+		051424AA1E589B8D0082B833 /* StringRessources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringRessources.m; sourceTree = "<group>"; };
 		051439A31E2C1555008E91CD /* FastAttack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FastAttack.h; sourceTree = "<group>"; };
 		051439A41E2C1555008E91CD /* FastAttack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FastAttack.m; sourceTree = "<group>"; };
 		051439A61E2C156A008E91CD /* SpecialAttack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialAttack.h; sourceTree = "<group>"; };
@@ -162,6 +165,8 @@
 				058192F61E47A0640045BE88 /* PokemonFamilyViewController.h */,
 				058192F71E47A0640045BE88 /* PokemonFamilyViewController.m */,
 				058192F81E47A0640045BE88 /* PokemonFamilyViewController.xib */,
+				051424A91E589B8D0082B833 /* StringRessources.h */,
+				051424AA1E589B8D0082B833 /* StringRessources.m */,
 				052CA8931E36B61400D8CB76 /* Tools.h */,
 				052CA8941E36B61400D8CB76 /* Tools.m */,
 				056DA0CF1E3CBA2F00A0CC17 /* Reachability.h */,
@@ -269,6 +274,7 @@
 				184EC6501E3370F0005D4D5F /* FeaturesViewController.m in Sources */,
 				052CA8911E36798300D8CB76 /* PokemonTableViewCell.m in Sources */,
 				056DA0D11E3CBA2F00A0CC17 /* Reachability.m in Sources */,
+				051424AB1E589B8D0082B833 /* StringRessources.m in Sources */,
 				055F4F221E33F6850011FAB9 /* PokeDataLayer.m in Sources */,
 				055AFF421E2AB1620080C597 /* main.m in Sources */,
 				037498841E336F2D00836F9C /* AboutViewController.m in Sources */,

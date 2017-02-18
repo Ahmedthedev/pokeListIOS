@@ -9,7 +9,7 @@
 #import "FeaturesViewController.h"
 #import "PokeDataLayer.h"
 #import "PokemonFamilyViewController.h"
-
+#import "StringRessources.h"
 
 @interface FeaturesViewController ()
 
@@ -25,14 +25,16 @@
     if(self != nil){
         self.currentPokemonId = pokeId;
     }
-    
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-  
-    self.title = @"Loading...";
+    // Debut affectation des label de la vue
+    self.weightLabel.text = [StringRessources getWeightLabel:[Tools getLocaleLanguage]];
+    self.heightLabel.text = [StringRessources getHeightLabel:[Tools getLocaleLanguage]];
+    // Fin affectation des label de la vue
+    self.title = [StringRessources getLoadingMessage:[Tools getLocaleLanguage]];
     self.navigationController.navigationBar.barTintColor = [Tools UIColorFromRGB:0xFFFFFF];
     // Couleur de la police du navigation bar
     self.navigationController.navigationBar.tintColor = [Tools UIColorFromRGB:0xB71C1C];
@@ -56,9 +58,9 @@
     if([Tools isInternetConnected]) {
         [PokeDataLayer getPokemonWithId:pokemonId andFeatureView:self];
     }else{
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Information" message:@"Your phone must be connected to internet to use this app.\n Please check your connection and try again." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Information" message:[StringRessources getNoInternetConnectionMessageWithLocaleString:[Tools getLocaleLanguage]] preferredStyle:UIAlertControllerStyleAlert];
         
-        UIAlertAction * refreshAction = [UIAlertAction actionWithTitle:@"Try again" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        UIAlertAction * refreshAction = [UIAlertAction actionWithTitle:[StringRessources getTryAgainMessage:[Tools getLocaleLanguage]] style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
             [self loadPokemonDataWithPokemonId:pokemonId];
         }];
         [alertController addAction:refreshAction];

@@ -10,6 +10,8 @@
 #import "FeaturesViewController.h"
 #import "PokeDataLayer.h"
 #import "LoadingViewController.h"
+#import "Tools.h"
+#import "StringRessources.h"
 
 @interface PokemonFamilyViewController ()
 
@@ -41,12 +43,27 @@
     UIBarButtonItem* shareBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(sharePokemon:)];
     shareBtn.tintColor = [Tools UIColorFromRGB:0xB71C1C];
     self.navigationItem.rightBarButtonItem = shareBtn;
-    [PokeDataLayer getPokemonFamilyWithPokemonFamilyView:self];
+    [self loadPokemonFamilyData];
+}
+
+/// Charge les données avec l'id du pokemon
+- (void) loadPokemonFamilyData{
+    if([Tools isInternetConnected]) {
+        [PokeDataLayer getPokemonFamilyWithPokemonFamilyView:self];
+    }else{
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Information" message:[StringRessources getNoInternetConnectionMessageWithLocaleString:[Tools getLocaleLanguage]] preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction * refreshAction = [UIAlertAction actionWithTitle:[StringRessources getTryAgainMessage:[Tools getLocaleLanguage]] style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            [self loadPokemonFamilyData];
+        }];
+        [alertController addAction:refreshAction];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
 }
 
 - (void)viewDidLoad {
-    
     [super viewDidLoad];
+    self.title = [StringRessources getLoadingMessage:[Tools getLocaleLanguage]];
     self.mainScrollView.pagingEnabled = YES;
 }
 

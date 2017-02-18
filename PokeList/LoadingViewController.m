@@ -7,6 +7,8 @@
 //
 
 #import "LoadingViewController.h"
+#import "Tools.h"
+#import "StringRessources.h"
 
 @interface LoadingViewController ()
 
@@ -16,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.loadingMessageLabel.text = [StringRessources getLoadingMessage:[Tools getLocaleLanguage]];
     // Do any additional setup after loading the view from its nib.
 }
 

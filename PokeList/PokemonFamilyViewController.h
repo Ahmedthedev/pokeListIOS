@@ -21,6 +21,9 @@
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil pokemonId:(unsigned short) pokeId;
 
+/// Charge les données avec l'id du pokemon
+- (void) loadPokemonFamilyData;
+
 /// Ajout de sous vue dans la scrollView
 - (void) addSubViewWithView:(UIView*) view;
 

@@ -15,6 +15,7 @@
 #import "Tools.h"
 #import "Pokemon.h"
 #import "PokeDataLayer.h"
+#import "StringRessources.h"
 
 @interface RootViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 
@@ -123,9 +124,9 @@ static NSString* const kCellId = @"Cell";
         [self.pokemonList removeAllObjects];
         self.pokemonList = [PokeDataLayer getAllPokemonsWithRootView:self andLoadingView:loadingView];
     }else{
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Information" message:@"Your phone must be connected to internet to use this app.\n Please check your connection and try again." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Information" message:[StringRessources getNoInternetConnectionMessageWithLocaleString:[Tools getLocaleLanguage]] preferredStyle:UIAlertControllerStyleAlert];
         
-        UIAlertAction * refreshAction = [UIAlertAction actionWithTitle:@"Try again" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        UIAlertAction * refreshAction = [UIAlertAction actionWithTitle:[StringRessources getTryAgainMessage:[Tools getLocaleLanguage]] style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
             [self loadPokemonInTableViewWithLoadingView:loadingView];
         }];
         [alertController addAction:refreshAction];
@@ -141,9 +142,9 @@ static NSString* const kCellId = @"Cell";
         [self.pokemonList removeAllObjects];
         self.pokemonList = [PokeDataLayer getAllPokemonsWithRootView:self andSearchPattern:self.searchBar.text];
     }else{
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Information" message:@"Your phone must be connected to internet to use this app.\n Please check your connection and try again." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Information" message:[StringRessources getNoInternetConnectionMessageWithLocaleString:[Tools getLocaleLanguage]] preferredStyle:UIAlertControllerStyleAlert];
         
-        UIAlertAction * refreshAction = [UIAlertAction actionWithTitle:@"Try again" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        UIAlertAction * refreshAction = [UIAlertAction actionWithTitle:[StringRessources getTryAgainMessage:[Tools getLocaleLanguage]] style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
             [self loadPokemonSearchResultIntTableView];
         }];
         [alertController addAction:refreshAction];

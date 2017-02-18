@@ -19,4 +19,7 @@
 /// Retourne une capture d'ecran pour la fonction share
 + (UIImage*) getUIImageWithView:(UIView*) view;
 
+/// Retourne la langue courrante du téléphone
++ (NSString*) getLocaleLanguage;
+
 @end

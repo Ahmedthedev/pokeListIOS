@@ -44,4 +44,9 @@
     return img;
 }
 
+/// Retourne la langue courrante du téléphone
++ (NSString*) getLocaleLanguage{
+    return [[NSLocale preferredLanguages] objectAtIndex:0];
+}
+
 @end
