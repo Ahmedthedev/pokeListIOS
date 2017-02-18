@@ -111,6 +111,7 @@ static NSString* const kCellId = @"Cell";
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
     [searchBar resignFirstResponder];
+    searchBar.text = @"";
     [self loadPokemonInTableViewWithLoadingView:[[LoadingViewController alloc] init]];
 }
 

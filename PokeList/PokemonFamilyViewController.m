@@ -31,9 +31,8 @@
     return self;
 }
 
-- (void)viewDidLoad {
-    
-    [super viewDidLoad];
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     self.navigationController.navigationBar.barTintColor = [Tools UIColorFromRGB:0xFFFFFF];
     // Couleur de la police du navigation bar
     self.navigationController.navigationBar.tintColor = [Tools UIColorFromRGB:0xB71C1C];
@@ -43,6 +42,11 @@
     shareBtn.tintColor = [Tools UIColorFromRGB:0xB71C1C];
     self.navigationItem.rightBarButtonItem = shareBtn;
     [PokeDataLayer getPokemonFamilyWithPokemonFamilyView:self];
+}
+
+- (void)viewDidLoad {
+    
+    [super viewDidLoad];
     self.mainScrollView.pagingEnabled = YES;
     
     // -------------------------------------------------
