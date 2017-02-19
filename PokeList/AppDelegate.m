@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "Tools.h"
 #import "RootViewController.h"
+@import GoogleMaps;
 
 @interface AppDelegate ()
 
@@ -18,6 +19,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // Chargement de la clé de l'api dans les services GMap
+    [GMSServices provideAPIKey:@"AIzaSyCYCZvYrGhaw-lWETvIQ-dHnVxMdLkxWaE"];
     RootViewController* rootViewController = [[RootViewController alloc] init]; // Construction
     UINavigationController* navigationController = [[UINavigationController alloc]initWithRootViewController:rootViewController];
     CGRect screenRect = [UIScreen mainScreen].bounds; // Récup taille ecran courant

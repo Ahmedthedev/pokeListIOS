@@ -12,6 +12,7 @@
 #import "FeaturesViewController.h"
 #import "LoadingViewController.h"
 #import "PokemonFamilyViewController.h"
+#import "PokemonPositionViewController.h"
 #import "Tools.h"
 #import "Pokemon.h"
 #import "PokeDataLayer.h"
@@ -37,7 +38,12 @@ static NSString* const kCellId = @"Cell";
         [uIBtnAbout addTarget:self action:@selector(btnAbout_Click:) forControlEvents:UIControlEventTouchUpInside];
         UIBarButtonItem *btnAbout = [[UIBarButtonItem alloc] initWithCustomView:uIBtnAbout];
         uIBtnAbout.tintColor = [UIColor whiteColor];
+        UIButton *uiBtnPokePosition = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [uiBtnPokePosition addTarget:self action:@selector(btnPokePosition_Click:) forControlEvents:UIControlEventTouchUpInside];
+        uiBtnPokePosition.tintColor = [UIColor whiteColor];
+        UIBarButtonItem *btnPokePosition = [[UIBarButtonItem alloc] initWithCustomView:uiBtnPokePosition];
         self.navigationItem.rightBarButtonItem = btnAbout;
+        self.navigationItem.leftBarButtonItem = btnPokePosition;
         /// Chargement du xib de la cellule custom dans la tableView
         [self.tableView registerNib:[UINib nibWithNibName:@"PokemonTableViewCell" bundle:nil] forCellReuseIdentifier:kCellId];
     }
@@ -96,6 +102,11 @@ static NSString* const kCellId = @"Cell";
 - (void) btnAbout_Click:(id) sender{
     AboutViewController* aboutView = [[AboutViewController alloc] init];
     [self presentViewController:aboutView animated:YES completion:nil];
+}
+
+- (void) btnPokePosition_Click:(id) sender{
+    PokemonPositionViewController *view = [[PokemonPositionViewController alloc] init];
+    [self.navigationController pushViewController:view animated:YES];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
