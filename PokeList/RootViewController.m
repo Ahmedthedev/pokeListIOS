@@ -23,6 +23,9 @@
 
 @implementation RootViewController
 
+@synthesize pokemonList = pokemonList_;
+@synthesize refreshControl = refreshControl_;
+
 static NSString* const kCellId = @"Cell";
 
 - (instancetype) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
@@ -48,11 +51,20 @@ static NSString* const kCellId = @"Cell";
     self.tableView.separatorColor = [UIColor clearColor];
     self.searchBar.delegate = self;
     self.searchBar.showsCancelButton = YES;
+    self.refreshControl = [[UIRefreshControl alloc]init];
+    [self.refreshControl addTarget:self action:@selector(refreshTable) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:self.refreshControl];
     self.pokemonList = [[NSMutableArray alloc] init];
     LoadingViewController *loadingView = [[LoadingViewController alloc] init];
     [self presentViewController:loadingView animated:NO completion:nil];
     // Appel de la methode static pour récupèrer les données
     [self loadPokemonInTableViewWithLoadingView:loadingView];
+}
+
+- (void)refreshTable {
+    [self loadPokemonInTableViewWithLoadingView:nil];
+    [self.refreshControl endRefreshing];
+    [self.tableView reloadData];
 }
 
 - (void) viewWillAppear:(BOOL)animated{
@@ -130,7 +142,9 @@ static NSString* const kCellId = @"Cell";
             [self loadPokemonInTableViewWithLoadingView:loadingView];
         }];
         [alertController addAction:refreshAction];
-        [loadingView presentViewController:alertController animated: YES completion: nil];
+        if(!loadingView){
+            [loadingView presentViewController:alertController animated: YES completion: nil];
+        }
     }
 }
 
