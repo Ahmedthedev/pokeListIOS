@@ -72,6 +72,18 @@
     return @"Height";
 }
 
+/// Retourne le string, Aucun resultat
+/// en fonction de la langue passer en paramètre
++ (NSString*) getEmptyResultMessage:(NSString*) locale{
+    if([locale isEqualToString:@"en"]){
+        return @"Empty result";
+    }
+    else if([locale isEqualToString:@"fr"]){
+        return @"Aucun résultat";
+    }
+    return @"Empty result";
+}
+
 /// Retourne le type anglais correspondant au type
 /// passer en paramètre
 + (NSString*) getEnTypesForString:(NSString*) typeStr{

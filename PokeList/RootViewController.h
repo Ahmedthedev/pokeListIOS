@@ -16,6 +16,7 @@
     UIRefreshControl *refreshControl_;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *tableViewMessage;
 
 @property (strong, nonatomic) NSMutableArray<Pokemon*> *pokemonList;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;

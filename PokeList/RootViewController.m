@@ -74,6 +74,7 @@ static NSString* const kCellId = @"Cell";
 
 - (void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self.tableViewMessage setHidden:YES];
     // Changement de couleur de la barre de navigation
     self.navigationController.navigationBar.barTintColor = [Tools UIColorFromRGB:0xB71C1C];
     // Changement de couleur de la police de la barre de navigation
@@ -98,6 +99,13 @@ static NSString* const kCellId = @"Cell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if([self.pokemonList count] == 0){
+        self.tableViewMessage.text = [StringRessources getEmptyResultMessage:[Tools getLocaleLanguage]];
+        [self.tableViewMessage setHidden:NO];
+    } else {
+        self.tableViewMessage.text = @"";
+        [self.tableViewMessage setHidden:YES];
+    }
     return [self.pokemonList count];
 }
 
