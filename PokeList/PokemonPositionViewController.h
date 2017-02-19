@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 @import GoogleMaps;
+@import CoreLocation;
+@class PokemonPosition;
 
 @interface PokemonPositionViewController : UIViewController{
+    @private
     GMSMapView *mapView_;
+    int updateCount_;
 }
 
 @property (strong, nonatomic) GMSMapView *mapView;

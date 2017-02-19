@@ -10,6 +10,8 @@
 #import "FeaturesViewController.h"
 #import "LoadingViewController.h"
 #import "PokemonFamilyViewController.h"
+#import "PokemonPositionViewController.h"
+#import "PokemonPosition.h"
 #import "StringRessources.h"
 
 /// Cette classe permet de récupèrer les infos depuis le WebService
@@ -180,6 +182,53 @@ const NSString *baseImageUrl = @"http://jeyaksan-rajaratnam.esy.es/webapp/pokeli
         }
     }];
     [dataTask resume];
+}
+
+/// Récupère le sprite du pokemon depuis le serveur avec son id (GMSMarker)
++ (void) getPokemonSpriteWithId:(unsigned short) pokemonId andGMarker:(GMSMarker*) marker{
+    marker.icon = [UIImage imageNamed:@"Pokeball"];
+    
+    NSString *spriteUrl = [NSString stringWithFormat:@"%@/sprites/%hu.png", baseImageUrl, pokemonId];
+    
+    NSURLSession* session = [NSURLSession sharedSession];
+    NSURLRequest* request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:spriteUrl]];
+    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if(!error){
+            
+            // On quitte le mode asynchrone pour impacter la vue
+            dispatch_async(dispatch_get_main_queue(), ^{
+                marker.icon = [UIImage imageWithData:data];
+            });
+        }
+    }];
+    [dataTask resume];
+}
+
+/// Récupère tous les Pokemon depuis le webservice
++ (NSMutableArray<PokemonPosition*>*) getPokemonsPositionsWithPokemonPositionView:(PokemonPositionViewController*) view andPosition:(CLLocationCoordinate2D) position{
+    __block NSMutableArray<PokemonPosition*> *positions = [[NSMutableArray alloc] init];
+    NSURLSession* session = [NSURLSession sharedSession];
+    NSURLRequest* request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%@/%@", baseApiUrl, @"/pokemonPosition/", [[NSString stringWithFormat:@"%f", position.longitude] stringByReplacingOccurrencesOfString:@"." withString:@"," ], [[NSString stringWithFormat:@"%f", position.latitude] stringByReplacingOccurrencesOfString:@"." withString:@"," ]]]];
+    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if(!error){
+            NSError* jsonError = nil;
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+            for (id key in dict) {
+                PokemonPosition *pokePosition = [[PokemonPosition alloc] initWithNSDictionnary:key];
+                [positions addObject:pokePosition];
+                GMSMarker *marker = [GMSMarker markerWithPosition:CLLocationCoordinate2DMake(pokePosition.latitude, pokePosition.longitude)];
+                [PokeDataLayer getPokemonSpriteWithId:pokePosition.number andGMarker:marker];
+                marker.title = @"Pokemon";
+                marker.map = view.mapView;
+            }
+        }
+        // On quitte le mode asynchrone pour impacter la vue
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // TODO
+        });
+    }];
+    [dataTask resume];
+    return positions;
 }
 
 @end

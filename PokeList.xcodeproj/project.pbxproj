@@ -23,6 +23,8 @@
 		052CA8951E36B61400D8CB76 /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 052CA8941E36B61400D8CB76 /* Tools.m */; };
 		0546F4CC1E59E0ED008049E5 /* PokemonPositionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0546F4CA1E59E0ED008049E5 /* PokemonPositionViewController.m */; };
 		0546F4CD1E59E0ED008049E5 /* PokemonPositionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0546F4CB1E59E0ED008049E5 /* PokemonPositionViewController.xib */; };
+		0546F4D01E59FC0F008049E5 /* PokemonPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 0546F4CF1E59FC0F008049E5 /* PokemonPosition.m */; };
+		0546F4D21E5A0B69008049E5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0546F4D11E5A0B69008049E5 /* CoreLocation.framework */; };
 		055AFF421E2AB1620080C597 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 055AFF411E2AB1620080C597 /* main.m */; };
 		055AFF451E2AB1620080C597 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 055AFF441E2AB1620080C597 /* AppDelegate.m */; };
 		055AFF4D1E2AB1620080C597 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 055AFF4C1E2AB1620080C597 /* Assets.xcassets */; };
@@ -70,6 +72,9 @@
 		0546F4C91E59E0ED008049E5 /* PokemonPositionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PokemonPositionViewController.h; sourceTree = "<group>"; };
 		0546F4CA1E59E0ED008049E5 /* PokemonPositionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PokemonPositionViewController.m; sourceTree = "<group>"; };
 		0546F4CB1E59E0ED008049E5 /* PokemonPositionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PokemonPositionViewController.xib; sourceTree = "<group>"; };
+		0546F4CE1E59FC0F008049E5 /* PokemonPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PokemonPosition.h; sourceTree = "<group>"; };
+		0546F4CF1E59FC0F008049E5 /* PokemonPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PokemonPosition.m; sourceTree = "<group>"; };
+		0546F4D11E5A0B69008049E5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		055AFF3D1E2AB1620080C597 /* PokeList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		055AFF411E2AB1620080C597 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		055AFF431E2AB1620080C597 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -103,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0546F4D21E5A0B69008049E5 /* CoreLocation.framework in Frameworks */,
 				C2F4EAE334B703DB98EC9949 /* libPods-PokeList.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -157,6 +163,8 @@
 				051439B31E2C15D9008E91CD /* NextEvolution.m */,
 				051439B91E2C17E4008E91CD /* PreviousEvolution.h */,
 				051439BA1E2C17E4008E91CD /* PreviousEvolution.m */,
+				0546F4CE1E59FC0F008049E5 /* PokemonPosition.h */,
+				0546F4CF1E59FC0F008049E5 /* PokemonPosition.m */,
 				055F4F201E33F6850011FAB9 /* PokeDataLayer.h */,
 				055F4F211E33F6850011FAB9 /* PokeDataLayer.m */,
 			);
@@ -222,6 +230,7 @@
 		E90B44ABE9D3FFFD8BA84B0D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0546F4D11E5A0B69008049E5 /* CoreLocation.framework */,
 				657CC4A4C5649FBE51E57B9C /* libPods-PokeList.a */,
 			);
 			name = Frameworks;
@@ -370,6 +379,7 @@
 				051424AB1E589B8D0082B833 /* StringRessources.m in Sources */,
 				055F4F221E33F6850011FAB9 /* PokeDataLayer.m in Sources */,
 				055AFF421E2AB1620080C597 /* main.m in Sources */,
+				0546F4D01E59FC0F008049E5 /* PokemonPosition.m in Sources */,
 				037498841E336F2D00836F9C /* AboutViewController.m in Sources */,
 				058192F91E47A0640045BE88 /* PokemonFamilyViewController.m in Sources */,
 				051439AE1E2C1594008E91CD /* Height.m in Sources */,

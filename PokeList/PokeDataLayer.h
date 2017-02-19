@@ -10,9 +10,12 @@
 #import "RootViewController.h"
 #import "PokemonTableViewCell.h"
 #import "Pokemon.h"
+@import GoogleMaps;
 @class FeaturesViewController;
 @class LoadingViewController;
 @class PokemonFamilyViewController;
+@class PokemonPositionViewController;
+@class PokemonPosition;
 
 /// Cette classe permet de récupèrer les infos depuis le WebService
 @interface PokeDataLayer : NSObject
@@ -35,5 +38,8 @@
 
 /// Récupère l'image du pokemon depuis le serveur avec son id (FeaturesView)
 + (void) getPokemonImageWithId:(unsigned short) pokemonId andImageView:(UIImageView*) imageView;
+
+/// Récupère le sprite du pokemon depuis le serveur avec son id (GMSMarker)
++ (void) getPokemonSpriteWithId:(unsigned short) pokemonId andGMarker:(GMSMarker*) marker;
 
 @end
