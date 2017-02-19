@@ -38,7 +38,7 @@ static NSString* const kCellId = @"Cell";
         [uIBtnAbout addTarget:self action:@selector(btnAbout_Click:) forControlEvents:UIControlEventTouchUpInside];
         UIBarButtonItem *btnAbout = [[UIBarButtonItem alloc] initWithCustomView:uIBtnAbout];
         uIBtnAbout.tintColor = [UIColor whiteColor];
-        UIButton *uiBtnPokePosition = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        UIButton *uiBtnPokePosition = [UIButton buttonWithType:UIButtonTypeContactAdd];
         [uiBtnPokePosition addTarget:self action:@selector(btnPokePosition_Click:) forControlEvents:UIControlEventTouchUpInside];
         uiBtnPokePosition.tintColor = [UIColor whiteColor];
         UIBarButtonItem *btnPokePosition = [[UIBarButtonItem alloc] initWithCustomView:uiBtnPokePosition];
