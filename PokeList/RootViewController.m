@@ -62,7 +62,13 @@ static NSString* const kCellId = @"Cell";
 }
 
 - (void)refreshTable {
-    [self loadPokemonInTableViewWithLoadingView:nil];
+    // On refresh soit les résultat de la recherche (si la searchbar
+    // n'est pas vide, soit tous les pokemon dans la TableView
+    if([self.searchBar.text isEqualToString:@""]){
+        [self loadPokemonInTableViewWithLoadingView:nil];
+    } else{
+        [self loadPokemonSearchResultIntTableView];
+    }
     [self.refreshControl endRefreshing];
     [self.tableView reloadData];
 }
