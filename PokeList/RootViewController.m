@@ -50,7 +50,6 @@ static NSString* const kCellId = @"Cell";
     self.tableView.dataSource = self;
     self.tableView.separatorColor = [UIColor clearColor];
     self.searchBar.delegate = self;
-    self.searchBar.showsCancelButton = YES;
     self.refreshControl = [[UIRefreshControl alloc]init];
     [self.refreshControl addTarget:self action:@selector(refreshTable) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
@@ -117,6 +116,16 @@ static NSString* const kCellId = @"Cell";
     [self loadPokemonSearchResultIntTableView];
     [self.tableView reloadData];
     [searchBar resignFirstResponder];
+}
+
+- (bool)searchBarShouldBeginEditing:(UISearchBar *)searchBar{
+    [self.searchBar setShowsCancelButton:YES animated:YES];
+    return YES;
+}
+
+-(bool)searchBarShouldEndEditing:(UISearchBar *)searchBar{
+    [self.searchBar setShowsCancelButton:NO animated:YES];
+    return YES;
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
